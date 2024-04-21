@@ -29,6 +29,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
+import com.axondragonscale.compose.demo.BuildConfig
 import com.axondragonscale.compose.demo.ui.Route
 import com.axondragonscale.compose.demo.ui.theme.ComposeDemosTheme
 
@@ -53,12 +54,21 @@ fun Home(
         Text(
             modifier = Modifier
                 .align(Alignment.Start)
-                .padding(top = 12.dp)
-                .padding(vertical = 24.dp, horizontal = 16.dp),
+                .padding(top = 36.dp)
+                .padding(horizontal = 16.dp),
             text = "Compose Demos",
             style = MaterialTheme.typography.displaySmall,
             color = MaterialTheme.colorScheme.primary,
             fontWeight = FontWeight.Bold,
+        )
+
+        Text(
+            modifier = Modifier
+                .align(Alignment.Start)
+                .padding(top = 4.dp, bottom = 24.dp)
+                .padding(horizontal = 20.dp),
+            text = "App Version: ${BuildConfig.VERSION_NAME}",
+            style = MaterialTheme.typography.labelMedium
         )
 
         Card(

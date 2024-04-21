@@ -6,6 +6,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.axondragonscale.compose.demo.paracarousel.ParallaxCarousel
 import com.axondragonscale.compose.demo.paracarousel.ParallaxCarouselV2
+import com.axondragonscale.compose.demo.typewriter.Typewriter
 import com.axondragonscale.compose.demo.ui.home.Home
 
 /**
@@ -29,6 +30,10 @@ fun DemoApp() {
 
         composable(route = Route.ParallaxCarouselV2.route) {
             ParallaxCarouselV2()
+        }
+
+        composable(route = Route.Typewriter.route) {
+            Typewriter()
         }
     }
 }

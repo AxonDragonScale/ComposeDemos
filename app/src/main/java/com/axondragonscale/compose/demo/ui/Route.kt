@@ -27,4 +27,10 @@ sealed class Route(
         title = "Parallax Carousel V2",
         description = "A simplified version of Parallax Carousel. Doesn't use Canvas to render the images."
     )
+
+    data object Typewriter: Route(
+        route = "Typewriter",
+        title = "Typewriter",
+        description = "New text appears with a typewriter like animation."
+    )
 }

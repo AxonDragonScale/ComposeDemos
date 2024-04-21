@@ -41,6 +41,7 @@ import com.axondragonscale.compose.demo.ui.theme.ComposeDemosTheme
 private val DemoItems = listOf(
     Route.ParallaxCarousel,
     Route.ParallaxCarouselV2,
+    Route.Typewriter,
 )
 
 @Composable

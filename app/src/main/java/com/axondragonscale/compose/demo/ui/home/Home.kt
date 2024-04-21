@@ -12,7 +12,7 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.KeyboardArrowRight
+import androidx.compose.material.icons.automirrored.filled.KeyboardArrowRight
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Icon
@@ -109,7 +109,7 @@ fun Home(
                         trailingContent = {
                             Icon(
                                 modifier = Modifier.offset(8.dp),
-                                imageVector = Icons.Default.KeyboardArrowRight,
+                                imageVector = Icons.AutoMirrored.Filled.KeyboardArrowRight,
                                 contentDescription = null
                             )
                         },
@@ -129,7 +129,7 @@ fun Home(
 @Preview(name = "Light", showBackground = true, uiMode = Configuration.UI_MODE_NIGHT_NO)
 @Preview(name = "Dark", showBackground = true, uiMode = Configuration.UI_MODE_NIGHT_YES)
 @Composable
-fun HomePreview(modifier: Modifier = Modifier) {
+fun HomePreview() {
     ComposeDemosTheme {
         Surface {
             Home(

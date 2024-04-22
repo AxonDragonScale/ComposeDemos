@@ -129,6 +129,7 @@ fun Shimmer(modifier: Modifier = Modifier) {
                             .shimmer(
                                 primaryColor = MaterialTheme.colorScheme.primary,
                                 backgroundColor = MaterialTheme.colorScheme.background,
+                                slant = Slant.None,
                             )
                     )
 
@@ -189,7 +190,7 @@ enum class Slant {
 fun Modifier.shimmer(
     primaryColor: Color,
     backgroundColor: Color,
-    slant: Slant = Slant.None,
+    slant: Slant = Slant.Right,
     isEnabled: Boolean = true,
     durationMillis: Int = 1000,
     animation: DurationBasedAnimationSpec<Float> = tween(
@@ -207,7 +208,7 @@ fun Modifier.shimmer(
 
 fun Modifier.shimmer(
     gradientColors: List<Color>,
-    slant: Slant = Slant.None,
+    slant: Slant = Slant.Right,
     isEnabled: Boolean = true,
     durationMillis: Int = 1000,
     animation: DurationBasedAnimationSpec<Float> = tween(
@@ -240,8 +241,8 @@ fun Modifier.shimmer(
                         x = xOffset + size.width.toFloat(),
                         y = when (slant) {
                             Slant.None -> 0f
-                            Slant.Left -> size.height.toFloat()
-                            Slant.Right -> -size.height.toFloat()
+                            Slant.Left -> -size.height.toFloat()
+                            Slant.Right -> size.height.toFloat()
                         }
                     )
                 ),

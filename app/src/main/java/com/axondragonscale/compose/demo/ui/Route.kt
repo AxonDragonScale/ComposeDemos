@@ -33,4 +33,10 @@ sealed class Route(
         title = "Typewriter",
         description = "New text appears with a typewriter like animation."
     )
+
+    data object Shimmer: Route(
+        route = "Shimmer",
+        title = "Shimmer",
+        description = "Various Shimmer animations."
+    )
 }

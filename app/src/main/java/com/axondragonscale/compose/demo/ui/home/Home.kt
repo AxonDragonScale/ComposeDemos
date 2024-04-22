@@ -42,6 +42,7 @@ private val DemoItems = listOf(
     Route.ParallaxCarousel,
     Route.ParallaxCarouselV2,
     Route.Typewriter,
+    Route.Shimmer,
 )
 
 @Composable

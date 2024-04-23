@@ -1,29 +1,25 @@
 package com.axondragonscale.compose.demo.loader
 
 import android.content.res.Configuration
-import androidx.compose.animation.core.Animatable
-import androidx.compose.animation.core.LinearOutSlowInEasing
+import androidx.compose.animation.core.LinearEasing
 import androidx.compose.animation.core.RepeatMode
-import androidx.compose.animation.core.StartOffset
+import androidx.compose.animation.core.animateFloat
 import androidx.compose.animation.core.infiniteRepeatable
 import androidx.compose.animation.core.keyframes
+import androidx.compose.animation.core.rememberInfiniteTransition
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.offset
-import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.runtime.remember
+import androidx.compose.runtime.State
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.scale
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.graphicsLayer
-import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
@@ -34,54 +30,49 @@ import com.axondragonscale.compose.demo.ui.theme.ComposeDemosTheme
  */
 
 @Composable
-fun BouncingCirclesLoader(
+fun PulsingCirclesLoader(
     modifier: Modifier = Modifier,
-    duration: Int = 1000,
+    numCircles: Int = 8,
+    durationPerCircle: Int = 200,
     circleSize: Dp = 16.dp,
     circleColor: Color = MaterialTheme.colorScheme.primary,
     spaceBy: Dp = 8.dp,
-    bounceHeight: Dp = 16.dp,
 ) {
-    val circleHeights = listOf(
-        remember { Animatable(0f) },
-        remember { Animatable(0f) },
-        remember { Animatable(0f) },
-    )
+    val transition = rememberInfiniteTransition("")
+    val circleScales = arrayListOf<State<Float>>()
+    for (i in 0 until numCircles) {
+        val delay = durationPerCircle * i
+        val scale = transition.animateFloat(
+            initialValue = 0f,
+            targetValue = 0f,
+            animationSpec = infiniteRepeatable(
+                animation = keyframes {
+                    durationMillis = durationPerCircle * numCircles
 
-    circleHeights.forEachIndexed { index, height ->
-        LaunchedEffect(height) {
-            height.animateTo(
-                targetValue = 1f,
-                animationSpec = infiniteRepeatable(
-                    animation = keyframes {
-                        durationMillis = duration
-
-                        0f at (duration * 0) using LinearOutSlowInEasing
-                        1f at (duration / 4) using LinearOutSlowInEasing
-                        0f at (duration / 2) using LinearOutSlowInEasing
-                        0f at duration using LinearOutSlowInEasing
-                    },
-                    repeatMode = RepeatMode.Restart,
-                    initialStartOffset = StartOffset(index * 100)
-                )
-            )
-        }
+                    0f at 0 using LinearEasing
+                    1f at delay using LinearEasing
+                    0f at durationMillis using LinearEasing
+                },
+                repeatMode = RepeatMode.Restart,
+            ),
+            label = "scale-$i"
+        )
+        circleScales.add(scale)
     }
 
     Row(
         modifier = modifier,
         horizontalArrangement = Arrangement.spacedBy(spaceBy)
     ) {
-        circleHeights.forEach { height ->
+        circleScales.forEach { scale ->
             Box(
                 modifier = Modifier
-                    .offset(y = -bounceHeight * height.value) // Apply offset before background
                     .size(circleSize)
+                    .scale(scale.value)
                     .background(circleColor, CircleShape)
             )
         }
     }
-
 }
 
 @Preview(name = "Light", showBackground = true, uiMode = Configuration.UI_MODE_NIGHT_NO)

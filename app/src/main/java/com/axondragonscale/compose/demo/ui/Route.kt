@@ -39,4 +39,11 @@ sealed class Route(
         title = "Shimmer",
         description = "Various Shimmer animations."
     )
+
+    data object Loaders: Route(
+        route = "Loaders",
+        title = "Loaders",
+        description = "Various Loader animations."
+    )
+
 }

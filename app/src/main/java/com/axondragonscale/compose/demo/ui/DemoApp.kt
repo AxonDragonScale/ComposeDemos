@@ -4,6 +4,7 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.axondragonscale.compose.demo.circle.CircleLayout
 import com.axondragonscale.compose.demo.loader.Loaders
 import com.axondragonscale.compose.demo.paracarousel.ParallaxCarousel
 import com.axondragonscale.compose.demo.paracarousel.ParallaxCarouselV2
@@ -44,6 +45,10 @@ fun DemoApp() {
 
         composable(route = Route.Loaders.route) {
             Loaders()
+        }
+
+        composable(route = Route.CircleLayout.route) {
+            CircleLayout()
         }
     }
 }

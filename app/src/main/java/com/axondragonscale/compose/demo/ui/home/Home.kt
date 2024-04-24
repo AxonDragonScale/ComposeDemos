@@ -44,6 +44,7 @@ private val DemoItems = listOf(
     Route.Typewriter,
     Route.Shimmer,
     Route.Loaders,
+    Route.CircleLayout,
 )
 
 @Composable

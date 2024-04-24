@@ -46,4 +46,10 @@ sealed class Route(
         description = "Various Loader animations."
     )
 
+    data object CircleLayout: Route(
+        route = "CircleLayout",
+        title = "Circle Layout",
+        description = "A layout that arranges the child elements in a circle"
+    )
+
 }

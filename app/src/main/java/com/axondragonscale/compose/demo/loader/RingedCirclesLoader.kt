@@ -9,9 +9,7 @@ import androidx.compose.animation.core.infiniteRepeatable
 import androidx.compose.animation.core.keyframes
 import androidx.compose.animation.core.rememberInfiniteTransition
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material3.MaterialTheme
@@ -20,11 +18,11 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.State
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
-import androidx.compose.ui.draw.scale
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.util.fastForEachReversed
 import com.axondragonscale.compose.demo.circle.CircularLayout
 import com.axondragonscale.compose.demo.ui.theme.ComposeDemosTheme
 
@@ -64,7 +62,7 @@ fun RingedCirclesLoader(
     }
 
     CircularLayout(modifier = modifier, radius = 24.dp) {
-        circleAlphas.forEach { alpha ->
+        circleAlphas.fastForEachReversed { alpha ->
             Box(
                 modifier = Modifier
                     .size(circleSize)

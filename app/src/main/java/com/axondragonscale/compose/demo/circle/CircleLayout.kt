@@ -89,7 +89,7 @@ fun CircularLayout(
         val parentRect = Rect(Offset.Zero, radius = radiusPx + placeableSize).roundToIntRect()
         val center = IntOffset(parentRect.width / 2, parentRect.height / 2)
 
-        val anglePerItem = Math.toRadians(360.0 / placeables.size)
+        val anglePerItem = -Math.toRadians(360.0 / placeables.size)
         layout(parentRect.width, parentRect.height) {
             var currentAngle = 0.0
             placeables.forEach { placeable ->

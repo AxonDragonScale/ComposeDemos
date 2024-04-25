@@ -22,7 +22,6 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.util.fastForEachReversed
 import com.axondragonscale.compose.demo.circle.CircularLayout
 import com.axondragonscale.compose.demo.ui.theme.ComposeDemosTheme
 
@@ -62,7 +61,7 @@ fun RingedCirclesLoader(
     }
 
     CircularLayout(modifier = modifier, radius = 24.dp) {
-        circleAlphas.fastForEachReversed { alpha ->
+        circleAlphas.forEach { alpha ->
             Box(
                 modifier = Modifier
                     .size(circleSize)

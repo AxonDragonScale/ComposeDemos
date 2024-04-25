@@ -49,7 +49,13 @@ sealed class Route(
     data object CircleLayout: Route(
         route = "CircleLayout",
         title = "Circle Layout",
-        description = "A layout that arranges the child elements in a circle"
+        description = "A layout that arranges the child elements in a circle."
+    )
+
+    data object RadialList: Route(
+        route = "RadialList",
+        title = "Radial List",
+        description = "A list with a radial curve."
     )
 
 }

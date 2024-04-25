@@ -1,4 +1,4 @@
-package com.axondragonscale.compose.demo.ui.home
+package com.axondragonscale.compose.demo.ui
 
 import android.content.res.Configuration
 import androidx.compose.foundation.clickable
@@ -31,7 +31,6 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.axondragonscale.compose.demo.BuildConfig
-import com.axondragonscale.compose.demo.ui.Route
 import com.axondragonscale.compose.demo.ui.theme.ComposeDemosTheme
 
 /**
@@ -45,6 +44,7 @@ private val DemoItems = listOf(
     Route.Shimmer,
     Route.Loaders,
     Route.CircleLayout,
+    Route.RadialList,
 )
 
 @Composable

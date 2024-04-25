@@ -58,4 +58,10 @@ sealed class Route(
         description = "A list with a radial curve."
     )
 
+    data object AnimatedBorder: Route(
+        route = "AnimatedBorder",
+        title = "Animated Border",
+        description = "A Card with Animated Borders and a modifier to apply animated border to any composable."
+    )
+
 }

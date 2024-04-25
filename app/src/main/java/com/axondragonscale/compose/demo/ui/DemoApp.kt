@@ -4,6 +4,7 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.axondragonscale.compose.demo.border.AnimatedBorder
 import com.axondragonscale.compose.demo.circle.CircleLayout
 import com.axondragonscale.compose.demo.loader.Loaders
 import com.axondragonscale.compose.demo.paracarousel.ParallaxCarousel
@@ -53,6 +54,10 @@ fun DemoApp() {
 
         composable(route = Route.RadialList.route) {
             RadialList()
+        }
+
+        composable(route = Route.AnimatedBorder.route) {
+            AnimatedBorder()
         }
     }
 }

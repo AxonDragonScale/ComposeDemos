@@ -4,8 +4,10 @@ import android.content.res.Configuration
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
@@ -45,6 +47,7 @@ private val DemoItems = listOf(
     Route.Loaders,
     Route.CircleLayout,
     Route.RadialList,
+    Route.AnimatedBorder,
 )
 
 @Composable
@@ -88,10 +91,11 @@ fun Home(
         ) {
             LazyColumn(
                 modifier = Modifier
-                    .padding(12.dp)
+                    .padding(horizontal = 12.dp)
                     .fillMaxWidth(),
                 verticalArrangement = Arrangement.spacedBy(12.dp)
             ) {
+                item { Spacer(modifier = Modifier.height(0.dp)) }
                 items(DemoItems) {
                     ListItem(
                         modifier = Modifier
@@ -125,6 +129,7 @@ fun Home(
                         )
                     )
                 }
+                item { Spacer(modifier = Modifier.height(0.dp)) }
             }
         }
     }

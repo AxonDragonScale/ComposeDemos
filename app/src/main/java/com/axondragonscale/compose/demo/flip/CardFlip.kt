@@ -59,6 +59,7 @@ fun CardFlip(modifier: Modifier = Modifier) {
                     isFlipped1 = !isFlipped1
                 },
             isFlipped = isFlipped1,
+            flipDuration = 1000,
             frontContent = {
                 CardContent(modifier = it.background(Red), text = "FRONT")
             },

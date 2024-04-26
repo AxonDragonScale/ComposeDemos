@@ -142,6 +142,7 @@ fun FlippableCard(
         else
             backContent(
                 Modifier.graphicsLayer {
+                    // Rotate the content so it doesn't look flipped
                     when (flipType) {
                         FlipType.Horizontal -> scaleX = -1f
                         FlipType.Vertical -> scaleY = -1f

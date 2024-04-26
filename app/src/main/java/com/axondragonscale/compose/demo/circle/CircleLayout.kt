@@ -43,17 +43,20 @@ fun CircleLayout(
     ) {
         CircularLayout {
             repeat(10) {
-                Text(
+                Box(
                     modifier = Modifier
                         .size(24.dp)
                         .background(
                             color = MaterialTheme.colorScheme.primary,
                             shape = RoundedCornerShape(25)
                         ),
-                    text = it.toString(),
-                    textAlign = TextAlign.Center,
-                    color = MaterialTheme.colorScheme.onPrimary,
-                )
+                    contentAlignment = Alignment.Center
+                ) {
+                    Text(
+                        text = it.toString(),
+                        color = MaterialTheme.colorScheme.onPrimary,
+                    )
+                }
             }
         }
 

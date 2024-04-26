@@ -64,4 +64,10 @@ sealed class Route(
         description = "A Card with Animated Borders and a modifier to apply animated border to any composable."
     )
 
+    data object CardFlip: Route(
+        route = "CardFlip",
+        title = "Card Flip",
+        description = "An Animation of a Card being flipped."
+    )
+
 }

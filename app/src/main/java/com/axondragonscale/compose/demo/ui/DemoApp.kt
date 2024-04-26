@@ -6,6 +6,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.axondragonscale.compose.demo.border.AnimatedBorder
 import com.axondragonscale.compose.demo.circle.CircleLayout
+import com.axondragonscale.compose.demo.flip.CardFlip
 import com.axondragonscale.compose.demo.loader.Loaders
 import com.axondragonscale.compose.demo.paracarousel.ParallaxCarousel
 import com.axondragonscale.compose.demo.paracarousel.ParallaxCarouselV2
@@ -58,6 +59,10 @@ fun DemoApp() {
 
         composable(route = Route.AnimatedBorder.route) {
             AnimatedBorder()
+        }
+
+        composable(route = Route.CardFlip.route) {
+            CardFlip()
         }
     }
 }

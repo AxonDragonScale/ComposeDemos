@@ -47,8 +47,8 @@ fun <T> AnimatedCounter(
                             slideInVertically { it } togetherWith slideOutVertically { -it }
                     },
                     contentAlignment = Alignment.Center,
-                ) { digit ->
-                    drawChar(digit.char)
+                ) { curDigit ->
+                    drawChar(curDigit.char)
                 }
             }
     }

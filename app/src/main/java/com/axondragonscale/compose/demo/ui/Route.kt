@@ -71,9 +71,14 @@ sealed class Route(
     )
 
     data object FluidFab: Route(
-        route = "FluidRab",
+        route = "FluidFab",
         title = "Fluid FAB",
         description = "An expandable Floating Action Button that expands into 3 buttons with a fluid liquidy animation."
     )
 
+    data object Counter: Route(
+        route = "Counter",
+        title = "Animated Counter",
+        description = "A simple counter which animates the digits of the number when it changes."
+    )
 }

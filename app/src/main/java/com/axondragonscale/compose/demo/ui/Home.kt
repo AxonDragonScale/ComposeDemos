@@ -50,6 +50,7 @@ private val DemoItems = listOf(
     Route.AnimatedBorder,
     Route.CardFlip,
     Route.FluidFab,
+    Route.Counter,
 )
 
 @Composable

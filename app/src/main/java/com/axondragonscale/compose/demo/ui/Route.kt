@@ -70,4 +70,10 @@ sealed class Route(
         description = "An Animation of a Card being flipped."
     )
 
+    data object FluidFab: Route(
+        route = "FluidRab",
+        title = "Fluid FAB",
+        description = "An expandable Floating Action Button that expands into 3 buttons with a fluid liquidy animation."
+    )
+
 }

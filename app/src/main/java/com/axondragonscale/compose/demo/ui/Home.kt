@@ -49,6 +49,7 @@ private val DemoItems = listOf(
     Route.RadialList,
     Route.AnimatedBorder,
     Route.CardFlip,
+    Route.FluidFab,
 )
 
 @Composable

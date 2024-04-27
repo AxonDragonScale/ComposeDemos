@@ -4,10 +4,17 @@ import android.content.res.Configuration
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.ExperimentalFoundationApi
+import androidx.compose.foundation.border
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.pager.HorizontalPager
+import androidx.compose.foundation.pager.PagerState
 import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Card
@@ -15,8 +22,11 @@ import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.rotate
 import androidx.compose.ui.graphics.ImageBitmap
+import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.graphics.drawscope.translate
 import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.platform.LocalDensity
@@ -26,8 +36,10 @@ import androidx.compose.ui.unit.Density
 import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.unit.IntSize
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.lerp
 import com.axondragonscale.compose.demo.R
 import com.axondragonscale.compose.demo.ui.theme.ComposeDemosTheme
+import kotlin.math.absoluteValue
 import kotlin.math.roundToInt
 
 /**
@@ -55,7 +67,7 @@ private val FrameHorizontalPadding = 32.dp
 fun ParallaxCarousel(
     modifier: Modifier = Modifier,
     images: List<Int> = defaultImages,
-) {
+) = Box {
     val configuration = LocalConfiguration.current
     val density = LocalDensity.current
 
@@ -79,7 +91,7 @@ fun ParallaxCarousel(
                 .fillMaxHeight(FrameHeightFraction),
             shape = RoundedCornerShape(10),
             colors = CardDefaults.cardColors(),
-            border = BorderStroke(8.dp, MaterialTheme.colorScheme.surfaceVariant),
+            border = BorderStroke(8.dp, MaterialTheme.colorScheme.primary),
             elevation = CardDefaults.cardElevation(8.dp)
         ) {
             // Canvas allows drawing outside the card bounds
@@ -93,7 +105,35 @@ fun ParallaxCarousel(
             }
         }
     }
+
+    Row(
+        modifier = Modifier
+            .fillMaxWidth()
+            .align(Alignment.BottomCenter)
+            .fillMaxHeight((1f - FrameHeightFraction)/2),
+        horizontalArrangement = Arrangement.Center,
+        verticalAlignment = Alignment.CenterVertically,
+    ) {
+        (0..images.size).forEach { index ->
+            val offset = pagerState.indicatorOffsetForPage(index)
+            Box(
+                Modifier
+                    .padding(4.dp)
+                    .rotate(135f * offset)
+                    .size(lerp(10.dp, 14.dp, offset))
+                    .border(
+                        width = 2.dp,
+                        color = MaterialTheme.colorScheme.primary,
+                        shape = RectangleShape,
+                    )
+            )
+        }
+    }
 }
+
+@OptIn(ExperimentalFoundationApi::class)
+private fun PagerState.indicatorOffsetForPage(index: Int) =
+    1f - getOffsetFractionForPage(index).coerceIn(-1f, 1f).absoluteValue
 
 private fun ImageBitmap.calcSizeAndOffset(
     frameWidth: Float,

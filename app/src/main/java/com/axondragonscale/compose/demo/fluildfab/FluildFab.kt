@@ -96,11 +96,14 @@ fun FluidFabButton(
         // Two ExpandableFabButton are needed here
         // The first one provides the background, blur and fluid effect
         // But the blur restricts it from rendering the icons properly
+        // Also drawing icons affects the fluid chain color
         // So we draw a second ExpandableFabButton on top of it without render effect
+        // that renders the icons
 
         ExpandableFabButton(
             isExpanded = isExpanded,
             fluidChainRenderEffect = fluidChainRenderEffect,
+            renderIcons = false,
             duration = duration,
         )
 
@@ -134,6 +137,7 @@ private fun ExpandableFabButton(
     modifier: Modifier = Modifier,
     isExpanded: Boolean,
     fluidChainRenderEffect: RenderEffect?,
+    renderIcons: Boolean = true,
     duration: Int,
     onClick: () -> Unit = {},
     onLeftButtonClick: () -> Unit = {},
@@ -166,7 +170,7 @@ private fun ExpandableFabButton(
                     end = expandedButtonHorizontalPadding * leftFabProgress,
                 )
             ),
-            icon = Icons.Default.Home,
+            icon = if (renderIcons) Icons.Default.Home else null,
             iconAlpha = leftFabProgress,
             onClick = onLeftButtonClick,
         )
@@ -185,7 +189,7 @@ private fun ExpandableFabButton(
                     bottom = expandedButtonBottomPadding * 2 * middleFabProgress
                 )
             ),
-            icon = Icons.Default.Settings,
+            icon = if (renderIcons) Icons.Default.Settings else null,
             iconAlpha = middleFabProgress,
             onClick = onMiddleButtonClick,
         )
@@ -205,7 +209,7 @@ private fun ExpandableFabButton(
                     start = expandedButtonHorizontalPadding * rightFabProgress,
                 )
             ),
-            icon = Icons.Default.CameraAlt,
+            icon = if (renderIcons) Icons.Default.CameraAlt else null,
             iconAlpha = rightFabProgress,
             onClick = onRightButtonClick,
         )
@@ -233,7 +237,7 @@ private fun ExpandableFabButton(
         )
         AnimatedFab(
             modifier = Modifier.rotate(45 * 5 * iconRotation),
-            icon = Icons.Default.Add,
+            icon = if (renderIcons) Icons.Default.Add else null,
             backgroundColor = Color.Transparent,
             onClick = onClick
         )

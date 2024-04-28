@@ -8,6 +8,7 @@ import androidx.navigation.compose.rememberNavController
 import com.axondragonscale.compose.demo.border.AnimatedBorder
 import com.axondragonscale.compose.demo.circle.CircleLayout
 import com.axondragonscale.compose.demo.counter.Counter
+import com.axondragonscale.compose.demo.cube.CubePager
 import com.axondragonscale.compose.demo.flip.CardFlip
 import com.axondragonscale.compose.demo.fluildfab.FluidFab
 import com.axondragonscale.compose.demo.loader.Loaders
@@ -86,6 +87,10 @@ fun DemoApp() {
 
         composable(route = Route.Counter.route) {
             Counter()
+        }
+
+        composable(route = Route.CubePager.route) {
+            CubePager()
         }
     }
 }

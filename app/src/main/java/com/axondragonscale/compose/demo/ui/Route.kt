@@ -81,4 +81,10 @@ sealed class Route(
         title = "Animated Counter",
         description = "A simple counter which animates the digits of the number when it changes."
     )
+
+    data object CubePager: Route(
+        route = "CubePager",
+        title = "Cube Pager",
+        description = "A Pager with cube like transition effect."
+    )
 }

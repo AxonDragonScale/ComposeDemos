@@ -93,4 +93,10 @@ sealed class Route(
         title = "Circular Reveal Pager",
         description = "A Pager where the next page is revealed in an expanding circular transition"
     )
+
+    data object StackedPager: Route(
+        route = "StackedPager",
+        title = "Stacked Pager",
+        description = "A layered pager, the current page is raised and prominent. The left and right pages appear blurred and scaled down behind it."
+    )
 }

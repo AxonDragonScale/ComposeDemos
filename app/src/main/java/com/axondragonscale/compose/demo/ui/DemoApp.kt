@@ -13,6 +13,7 @@ import com.axondragonscale.compose.demo.flip.CardFlip
 import com.axondragonscale.compose.demo.fluildfab.FluidFab
 import com.axondragonscale.compose.demo.loader.Loaders
 import com.axondragonscale.compose.demo.pager.CircularRevealPager
+import com.axondragonscale.compose.demo.pager.StackedPager
 import com.axondragonscale.compose.demo.paracarousel.ParallaxCarousel
 import com.axondragonscale.compose.demo.paracarousel.ParallaxCarouselV2
 import com.axondragonscale.compose.demo.radial.RadialList
@@ -96,6 +97,10 @@ fun DemoApp() {
 
         composable(route = Route.CircularRevealPager.route) {
             CircularRevealPager()
+        }
+
+        composable(route = Route.StackedPager.route) {
+            StackedPager()
         }
     }
 }

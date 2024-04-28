@@ -1,4 +1,4 @@
-package com.axondragonscale.compose.demo.cube
+package com.axondragonscale.compose.demo.pager
 
 import android.content.res.Configuration
 import androidx.compose.animation.core.FastOutLinearInEasing

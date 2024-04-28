@@ -87,4 +87,10 @@ sealed class Route(
         title = "Cube Pager",
         description = "A Pager with cube like transition effect."
     )
+
+    data object CircularRevealPager: Route(
+        route = "CircularRevealPager",
+        title = "Circular Reveal Pager",
+        description = "A Pager where the next page is revealed in an expanding circular transition"
+    )
 }

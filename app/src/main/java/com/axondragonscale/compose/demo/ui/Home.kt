@@ -54,6 +54,7 @@ private val DemoItems = listOf(
     Route.CubePager,
     Route.CircularRevealPager,
     Route.StackedPager,
+    Route.Shake,
 )
 
 @Composable

@@ -91,12 +91,18 @@ sealed class Route(
     data object CircularRevealPager: Route(
         route = "CircularRevealPager",
         title = "Circular Reveal Pager",
-        description = "A Pager where the next page is revealed in an expanding circular transition"
+        description = "A Pager where the next page is revealed in an expanding circular transition."
     )
 
     data object StackedPager: Route(
         route = "StackedPager",
         title = "Stacked Pager",
         description = "A layered pager, the current page is raised and prominent. The left and right pages appear blurred and scaled down behind it."
+    )
+
+    data object Shake: Route(
+        route = "Shake",
+        title = "Shake",
+        description = "A modifier that gives a shake animation to the composable."
     )
 }

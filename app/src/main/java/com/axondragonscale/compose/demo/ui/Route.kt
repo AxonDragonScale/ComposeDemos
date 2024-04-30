@@ -105,4 +105,10 @@ sealed class Route(
         title = "Shake",
         description = "A modifier that gives a shake animation to the composable."
     )
+
+    data object ScribbleIndicator: Route(
+        route = "ScribbleIndicator",
+        title = "Scribble Tab Indicator",
+        description = "A custom hand drawn looped Tab Indicator."
+    )
 }

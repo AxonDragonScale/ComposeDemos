@@ -18,6 +18,7 @@ import com.axondragonscale.compose.demo.paracarousel.ParallaxCarousel
 import com.axondragonscale.compose.demo.paracarousel.ParallaxCarouselV2
 import com.axondragonscale.compose.demo.radial.RadialList
 import com.axondragonscale.compose.demo.scribble.ScribbleIndicator
+import com.axondragonscale.compose.demo.shaders.Shaders
 import com.axondragonscale.compose.demo.shake.Shake
 import com.axondragonscale.compose.demo.shimmer.Shimmer
 import com.axondragonscale.compose.demo.typewriter.Typewriter
@@ -111,6 +112,10 @@ fun DemoApp() {
 
         composable(route = Route.ScribbleIndicator.route) {
             ScribbleIndicator()
+        }
+
+        composable(route = Route.Shaders.route) {
+            Shaders()
         }
     }
 }

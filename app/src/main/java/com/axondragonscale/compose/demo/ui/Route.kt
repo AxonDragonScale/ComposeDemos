@@ -111,4 +111,10 @@ sealed class Route(
         title = "Scribble Tab Indicator",
         description = "A custom hand drawn looped Tab Indicator."
     )
+
+    data object Shaders: Route(
+        route = "Shaders",
+        title = "Shaders",
+        description = "A whole lot of fun shader effects."
+    )
 }

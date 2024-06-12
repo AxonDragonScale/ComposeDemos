@@ -23,7 +23,7 @@ import com.axondragonscale.compose.demo.ui.theme.ComposeDemosTheme
 @RequiresApi(Build.VERSION_CODES.TIRAMISU)
 val PositionalShaderPage = ShaderPage(
     title = "Positional Shader",
-    desc = "Calculates color of each pixel based on its position",
+    desc = "Calculates color of each pixel based on its position.",
     content = { PositionalShader() }
 )
 

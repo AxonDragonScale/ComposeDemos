@@ -30,7 +30,7 @@ import com.axondragonscale.compose.demo.ui.theme.ComposeDemosTheme
 @RequiresApi(Build.VERSION_CODES.TIRAMISU)
 val ImageShaderPage = ShaderPage(
     title = "Image Shader",
-    desc = "Apply shader to an image",
+    desc = "Apply shader to an image.",
     content = { ImageShader() }
 )
 

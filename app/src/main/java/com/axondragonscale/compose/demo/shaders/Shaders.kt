@@ -31,6 +31,7 @@ import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.snapshotFlow
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -38,6 +39,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.axondragonscale.compose.demo.ui.theme.ComposeDemosTheme
+import kotlinx.coroutines.launch
 
 /**
  * Created by Ronak Harkhani on 10/05/24
@@ -54,6 +56,7 @@ private val pages = listOf(
     PositionalShaderPage,
     TextShaderPage,
     ImageShaderPage,
+    TimeShaderPage,
 )
 
 @OptIn(ExperimentalFoundationApi::class)
@@ -61,6 +64,7 @@ private val pages = listOf(
 fun Shaders(modifier: Modifier = Modifier) = Column(modifier = modifier.fillMaxSize()) {
     if (Build.VERSION.SDK_INT < Build.VERSION_CODES.TIRAMISU) return@Column
 
+    val scope = rememberCoroutineScope()
     val pagerState = rememberPagerState { pages.size }
     Box(
         modifier = Modifier
@@ -76,7 +80,11 @@ fun Shaders(modifier: Modifier = Modifier) = Column(modifier = modifier.fillMaxS
         verticalAlignment = Alignment.CenterVertically,
     ) {
         IconButton(
-            onClick = { },
+            onClick = {
+                scope.launch {
+                    pagerState.scrollToPage(pagerState.currentPage - 1)
+                }
+            },
             enabled = pagerState.currentPage != 0
         ) {
             Icon(imageVector = Icons.AutoMirrored.Filled.ArrowBackIos, contentDescription = "")
@@ -100,7 +108,11 @@ fun Shaders(modifier: Modifier = Modifier) = Column(modifier = modifier.fillMaxS
         }
 
         IconButton(
-            onClick = { },
+            onClick = {
+                scope.launch {
+                    pagerState.scrollToPage(pagerState.currentPage + 1)
+                }
+            },
             enabled = pagerState.currentPage != pages.lastIndex,
         ) {
             Icon(imageVector = Icons.AutoMirrored.Filled.ArrowForwardIos, contentDescription = "")

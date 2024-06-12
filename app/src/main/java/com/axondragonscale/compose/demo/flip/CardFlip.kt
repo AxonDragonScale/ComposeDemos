@@ -44,7 +44,7 @@ private val Green = Color(0xFF1A4D2E)
 @Composable
 fun CardFlip(modifier: Modifier = Modifier) {
     Column(
-        modifier = Modifier.fillMaxSize(),
+        modifier = modifier.fillMaxSize(),
         verticalArrangement = Arrangement.SpaceEvenly,
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {

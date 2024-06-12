@@ -39,18 +39,21 @@ private val SHADER = """
     half4 main(float2 pos) {
         // Get pixel at pos in composable (text) and use its alpha for shader's alpha
         // So Shader is applied to text pixels, and alpha is 0 elsewhere
-        
-        return half4(pos.x / size.x, pos.y / size.y, 0.75, composable.eval(pos).a);
+        float alpha = composable.eval(pos).a;
+        if(alpha > 0)
+            return half4(pos.x / size.x, pos.y / size.y, 0.75, alpha);
+        else
+            return composable.eval(pos);
     }
     
 """.trimIndent()
 
 @RequiresApi(Build.VERSION_CODES.TIRAMISU)
 @Composable
-fun TextShader() {
+fun TextShader(modifier: Modifier = Modifier) {
     val shader = remember { RuntimeShader(SHADER) }
     Box(
-        modifier = Modifier.fillMaxSize(),
+        modifier = modifier.fillMaxSize(),
         contentAlignment = Alignment.Center,
     ) {
         Text(

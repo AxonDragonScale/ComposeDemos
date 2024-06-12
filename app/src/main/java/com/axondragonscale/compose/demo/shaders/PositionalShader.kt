@@ -40,10 +40,10 @@ private val SHADER = """
 
 @RequiresApi(Build.VERSION_CODES.TIRAMISU)
 @Composable
-fun PositionalShader() {
+fun PositionalShader(modifier: Modifier = Modifier) {
     val shader = remember { RuntimeShader(SHADER) }
     Surface(
-        modifier = Modifier
+        modifier = modifier
             .fillMaxSize()
             .onSizeChanged {
                 shader.setFloatUniform(

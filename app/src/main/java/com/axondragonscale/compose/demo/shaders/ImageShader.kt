@@ -63,10 +63,10 @@ private val SHADER = """
 
 @RequiresApi(Build.VERSION_CODES.TIRAMISU)
 @Composable
-fun ImageShader() {
+fun ImageShader(modifier: Modifier = Modifier) {
     val shader = remember { RuntimeShader(SHADER) }
     Box(
-        modifier = Modifier.fillMaxSize(),
+        modifier = modifier.fillMaxSize(),
         contentAlignment = Alignment.Center,
     ) {
         Image(

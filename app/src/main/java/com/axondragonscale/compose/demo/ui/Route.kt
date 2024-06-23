@@ -117,4 +117,10 @@ sealed class Route(
         title = "Shaders",
         description = "A whole lot of fun shader effects."
     )
+
+    data object ShapesAndMorph: Route(
+        route = "ShapesAndMorph",
+        title = "Shapes and Morph",
+        description = "Just a bit of Shapes and Morphing."
+    )
 }

@@ -11,6 +11,7 @@ import com.axondragonscale.compose.demo.counter.Counter
 import com.axondragonscale.compose.demo.flip.CardFlip
 import com.axondragonscale.compose.demo.fluildfab.FluidFab
 import com.axondragonscale.compose.demo.loader.Loaders
+import com.axondragonscale.compose.demo.morph.ShapesAndMorph
 import com.axondragonscale.compose.demo.pager.CircularRevealPager
 import com.axondragonscale.compose.demo.pager.CubePager
 import com.axondragonscale.compose.demo.pager.StackedPager
@@ -116,6 +117,10 @@ fun DemoApp() {
 
         composable(route = Route.Shaders.route) {
             Shaders()
+        }
+
+        composable(route = Route.ShapesAndMorph.route) {
+            ShapesAndMorph()
         }
     }
 }

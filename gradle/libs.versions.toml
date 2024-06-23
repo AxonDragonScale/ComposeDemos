@@ -16,6 +16,8 @@ lifecycle = "2.8.2"
 activityCompose = "1.9.0"
 navigationCompose = "2.7.7"
 composeBom = "2024.06.00"
+graphicsPath = "1.0.1"
+graphicsShape = "1.0.0-beta01"
 
 [libraries]
 activity-compose = { module = "androidx.activity:activity-compose", version.ref = "activityCompose" }
@@ -31,6 +33,8 @@ compose-material-icons-extended = { module = "androidx.compose.material:material
 compose-ui-tooling = { module = "androidx.compose.ui:ui-tooling" }
 compose-ui-tooling-preview = { module = "androidx.compose.ui:ui-tooling-preview" }
 compose-ui-test-manifest = { module = "androidx.compose.ui:ui-test-manifest" }
+graphics-path = { module = "androidx.graphics:graphics-path", version.ref = "graphicsPath" }
+graphics-shape = { module = "androidx.graphics:graphics-shapes", version.ref = "graphicsShape" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "androidGradlePlugin" }
@@ -40,3 +44,4 @@ kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 compose = ["compose-ui", "compose-ui-graphics", "compose-ui-tooling-preview", "compose-material3", "compose-material-icons-extended"]
 composeDebug = ["compose-ui-tooling", "compose-ui-test-manifest"]
 lifecycle = ["lifecycle-runtime-ktx", "lifecycle-runtime-compose"]
+graphics = ["graphics-path", "graphics-shape"]

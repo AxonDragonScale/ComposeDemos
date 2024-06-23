@@ -57,6 +57,7 @@ private val DemoItems = listOf(
     Route.Shake,
     Route.ScribbleIndicator,
     Route.Shaders,
+    Route.ShapesAndMorph,
 )
 
 @Composable

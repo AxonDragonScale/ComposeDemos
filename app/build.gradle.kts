@@ -64,6 +64,7 @@ dependencies {
     implementation(libs.navigation.compose)
 
     implementation(libs.bundles.lifecycle)
+    implementation(libs.bundles.graphics)
 
     implementation(platform(libs.compose.bom))
     implementation(libs.bundles.compose)

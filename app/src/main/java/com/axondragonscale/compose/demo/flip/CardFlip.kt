@@ -161,7 +161,7 @@ enum class FlipType {
 @Preview(name = "Light", showBackground = true, uiMode = Configuration.UI_MODE_NIGHT_NO)
 @Preview(name = "Dark", showBackground = true, uiMode = Configuration.UI_MODE_NIGHT_YES)
 @Composable
-private fun CardFlipPreview() {
+private fun Preview() {
     ComposeDemosTheme {
         Surface {
             CardFlip()

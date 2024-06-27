@@ -148,7 +148,7 @@ fun Home(
 @Preview(name = "Light", showBackground = true, uiMode = Configuration.UI_MODE_NIGHT_NO)
 @Preview(name = "Dark", showBackground = true, uiMode = Configuration.UI_MODE_NIGHT_YES)
 @Composable
-fun HomePreview() {
+private fun Preview() {
     ComposeDemosTheme {
         Surface {
             Home(

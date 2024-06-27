@@ -33,8 +33,8 @@ import com.axondragonscale.compose.demo.ui.theme.ComposeDemosTheme
  */
 
 private enum class Tab(val tabName: String) {
-    ShapeEditor("EDITOR"),
-    ShapeMorpher("MORPHER");
+    ShapeMorpher("MORPHER"),
+    ShapeEditor("EDITOR");
 }
 
 @Composable
@@ -110,7 +110,7 @@ private fun TabBar(
 @Preview(name = "Light", showBackground = true, uiMode = Configuration.UI_MODE_NIGHT_NO)
 @Preview(name = "Dark", showBackground = true, uiMode = Configuration.UI_MODE_NIGHT_YES)
 @Composable
-private fun MorphPreview() {
+private fun Preview() {
     ComposeDemosTheme {
         Surface {
             ShapesAndMorph()

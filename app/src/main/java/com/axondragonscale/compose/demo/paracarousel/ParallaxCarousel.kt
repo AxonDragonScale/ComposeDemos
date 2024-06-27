@@ -163,7 +163,7 @@ private fun ImageBitmap.calcSizeAndOffset(
 @Preview(name = "Dark", showBackground = true, uiMode = Configuration.UI_MODE_NIGHT_YES)
 @Preview(name = "Light", showBackground = true, uiMode = Configuration.UI_MODE_NIGHT_NO)
 @Composable
-fun ParallaxCarouselPreview() {
+private fun Preview() {
     ComposeDemosTheme {
         Surface {
             ParallaxCarousel()

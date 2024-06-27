@@ -19,7 +19,7 @@ internal fun ShapeEditor(modifier: Modifier = Modifier) {
 @Preview(name = "Light", showBackground = true, uiMode = Configuration.UI_MODE_NIGHT_NO)
 @Preview(name = "Dark", showBackground = true, uiMode = Configuration.UI_MODE_NIGHT_YES)
 @Composable
-private fun MorphPreview() {
+private fun Preview() {
     ComposeDemosTheme {
         Surface {
             ShapeEditor()

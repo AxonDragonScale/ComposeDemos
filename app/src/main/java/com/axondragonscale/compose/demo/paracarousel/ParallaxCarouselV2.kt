@@ -128,7 +128,7 @@ private fun PagerState.indicatorOffsetForPage(index: Int) =
 @Preview(name = "Dark", showBackground = true, uiMode = Configuration.UI_MODE_NIGHT_YES)
 @Preview(name = "Light", showBackground = true, uiMode = Configuration.UI_MODE_NIGHT_NO)
 @Composable
-fun ParallaxCarouselV2Preview() {
+private fun Preview() {
     ComposeDemosTheme {
         Surface {
             ParallaxCarouselV2()

@@ -64,7 +64,7 @@ fun PositionalShader(modifier: Modifier = Modifier) {
 @Preview(name = "Light", showBackground = true, uiMode = Configuration.UI_MODE_NIGHT_NO)
 @Preview(name = "Dark", showBackground = true, uiMode = Configuration.UI_MODE_NIGHT_YES)
 @Composable
-private fun ShakePreview() {
+private fun Preview() {
     ComposeDemosTheme {
         Surface {
             PositionalShader()

@@ -6,6 +6,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.axondragonscale.compose.demo.border.AnimatedBorder
+import com.axondragonscale.compose.demo.bottombar.BottomBar
 import com.axondragonscale.compose.demo.circle.CircleLayout
 import com.axondragonscale.compose.demo.counter.Counter
 import com.axondragonscale.compose.demo.flip.CardFlip
@@ -121,6 +122,10 @@ fun DemoApp() {
 
         composable(route = Route.ShapesAndMorph.route) {
             ShapesAndMorph()
+        }
+
+        composable(route = Route.BottomBar.route) {
+            BottomBar()
         }
     }
 }

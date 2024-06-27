@@ -123,4 +123,10 @@ sealed class Route(
         title = "Shapes and Morph",
         description = "Just a bit of Shapes and Morphing."
     )
+
+    data object BottomBar: Route(
+        route = "BottomBar",
+        title = "Bottom Bars",
+        description = "Some fun bottom bars."
+    )
 }

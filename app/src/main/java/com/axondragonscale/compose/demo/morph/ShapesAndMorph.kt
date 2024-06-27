@@ -43,7 +43,7 @@ fun ShapesAndMorph(modifier: Modifier = Modifier) {
         modifier = modifier.fillMaxSize(),
         verticalArrangement = Arrangement.Bottom
     ) {
-        var selectedTab by remember { mutableStateOf(Tab.ShapeEditor) }
+        var selectedTab by remember { mutableStateOf(Tab.ShapeMorpher) }
 
         when (selectedTab) {
             Tab.ShapeEditor -> ShapeEditor(modifier = Modifier.weight(1f))

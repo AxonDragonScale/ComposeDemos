@@ -217,7 +217,7 @@ internal fun ShapeMorpher(modifier: Modifier = Modifier) {
                 .padding(top = 8.dp),
             morph = morph,
             morphProgress = morphProgress.value,
-            drawType = DrawType.Shape,
+            drawType = drawType.value,
         )
     }
 }
@@ -348,8 +348,8 @@ private fun MorphBox(
     morph: Morph,
     morphProgress: Float,
     drawType: DrawType,
+    color: Color = LocalContentColor.current
 ) {
-    val color = LocalContentColor.current
     Box(
         modifier = modifier
             .aspectRatio(1f)
@@ -358,8 +358,11 @@ private fun MorphBox(
                 drawContent()
 
                 val scale = min(size.width, size.height)
-                val path = morph.toComposePath(morphProgress, scale)
-                drawPath(path = path, color = color)
+                if (drawType == DrawType.Shape) {
+                    drawShape(morph, morphProgress, scale, color)
+                } else if (drawType == DrawType.Bezier) {
+                    drawBeziers(morph, morphProgress, scale, color)
+                }
             }
     )
 }

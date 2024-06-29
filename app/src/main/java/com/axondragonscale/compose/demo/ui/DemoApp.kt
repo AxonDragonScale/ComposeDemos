@@ -18,6 +18,7 @@ import com.axondragonscale.compose.demo.pager.CubePager
 import com.axondragonscale.compose.demo.pager.StackedPager
 import com.axondragonscale.compose.demo.paracarousel.ParallaxCarousel
 import com.axondragonscale.compose.demo.paracarousel.ParallaxCarouselV2
+import com.axondragonscale.compose.demo.progressbar.ProgressBar
 import com.axondragonscale.compose.demo.radial.RadialList
 import com.axondragonscale.compose.demo.scribble.ScribbleIndicator
 import com.axondragonscale.compose.demo.shaders.Shaders
@@ -126,6 +127,10 @@ fun DemoApp() {
 
         composable(route = Route.BottomBar.route) {
             BottomBar()
+        }
+
+        composable(route = Route.ProgressBar.route) {
+            ProgressBar()
         }
     }
 }

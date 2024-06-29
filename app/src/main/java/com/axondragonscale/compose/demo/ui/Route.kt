@@ -129,4 +129,10 @@ sealed class Route(
         title = "Bottom Bars",
         description = "Some fun bottom bars."
     )
+
+    data object ProgressBar: Route(
+        route = "ProgressBar",
+        title = "Progress Bars",
+        description = "Bcoz progress shouldn't be like watching paint dry."
+    )
 }

@@ -59,6 +59,7 @@ private val DemoItems = listOf(
     Route.Shaders,
     Route.ShapesAndMorph,
     Route.BottomBar,
+    Route.ProgressBar,
 )
 
 @Composable

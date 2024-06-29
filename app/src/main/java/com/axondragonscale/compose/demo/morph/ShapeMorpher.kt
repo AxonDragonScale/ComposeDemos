@@ -3,6 +3,7 @@ package com.axondragonscale.compose.demo.morph
 import android.content.res.Configuration
 import androidx.compose.animation.core.Animatable
 import androidx.compose.animation.core.AnimationVector1D
+import androidx.compose.animation.core.spring
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -191,7 +192,7 @@ internal fun ShapeMorpher(modifier: Modifier = Modifier) {
         val morphProgress = remember { Animatable(0f) }
         val drawType = remember { mutableStateOf(DrawType.Shape) }
         val prevShape = remember { mutableStateOf(shapes[0]) }
-        val currShape = remember { mutableStateOf(shapes[1]) }
+        val currShape = remember { mutableStateOf(shapes[0]) }
         val morph by remember {
             derivedStateOf {
                 Morph(start = prevShape.value, end = currShape.value)
@@ -249,12 +250,12 @@ private fun ShapeList(
                             currShape.value = shape
 
                             morphProgress.snapTo(0f)
-                            morphProgress.animateTo(1f)
+                            morphProgress.animateTo(1f, spring(0.6f, 50f))
                         }
                     }
                     .border(
                         width = 2.dp,
-                        color = LocalContentColor.current.copy(
+                        color = MaterialTheme.colorScheme.primary.copy(
                             alpha = borderAlpha.coerceIn(0f, 1f)
                         ),
                         shape = RoundedCornerShape(4.dp)
@@ -271,8 +272,8 @@ private fun ShapeList(
 private fun ShapeBox(
     modifier: Modifier = Modifier,
     shape: RoundedPolygon,
+    color: Color = LocalContentColor.current,
 ) {
-    val color = LocalContentColor.current
     Box(
         modifier = modifier
             .fillMaxSize()
@@ -319,6 +320,11 @@ private fun ColumnScope.Controls(
                         count = 2,
                         baseShape = RoundedCornerShape(4.dp)
                     ),
+                    colors = SegmentedButtonDefaults.colors(
+                        activeContainerColor = MaterialTheme.colorScheme.primaryContainer,
+                        activeContentColor = MaterialTheme.colorScheme.primary,
+                        activeBorderColor = MaterialTheme.colorScheme.primary,
+                    ),
                     icon = { },
                     label = { Text(it.name) }
                 )
@@ -346,9 +352,7 @@ private fun MorphBox(
     val color = LocalContentColor.current
     Box(
         modifier = modifier
-            .fillMaxSize()
             .aspectRatio(1f)
-            .border(1.dp, Color.Red)
             .padding(8.dp)
             .drawWithContent {
                 drawContent()

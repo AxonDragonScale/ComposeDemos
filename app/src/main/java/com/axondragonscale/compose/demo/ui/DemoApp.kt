@@ -24,6 +24,7 @@ import com.axondragonscale.compose.demo.scribble.ScribbleIndicator
 import com.axondragonscale.compose.demo.shaders.Shaders
 import com.axondragonscale.compose.demo.shake.Shake
 import com.axondragonscale.compose.demo.shimmer.Shimmer
+import com.axondragonscale.compose.demo.slider.NumberSlider
 import com.axondragonscale.compose.demo.typewriter.Typewriter
 
 /**
@@ -131,6 +132,10 @@ fun DemoApp() {
 
         composable(route = Route.ProgressBar.route) {
             ProgressBar()
+        }
+
+        composable(route = Route.NumberSlider.route) {
+            NumberSlider()
         }
     }
 }

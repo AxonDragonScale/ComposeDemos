@@ -135,4 +135,10 @@ sealed class Route(
         title = "Progress Bars",
         description = "Bcoz progress shouldn't be like watching paint dry."
     )
+
+    data object NumberSlider: Route(
+        route = "NumberSlider",
+        title = "Number Slider",
+        description = "Hmm, Wouldn't it be nice if the slider had numbers"
+    )
 }

@@ -60,6 +60,7 @@ private val DemoItems = listOf(
     Route.ShapesAndMorph,
     Route.BottomBar,
     Route.ProgressBar,
+    Route.NumberSlider,
 )
 
 @Composable

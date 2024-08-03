@@ -84,13 +84,48 @@ internal fun DrawScope.drawBeziers(morph: Morph, progress: Float, scale: Float =
 
         // Draw a circle for the first control point, and a line from start to it.
         // The curve will start in this direction
-        drawLine(Color.Yellow, cubic.anchor0(), cubic.control0(), strokeWidth = 1f)
-        drawCircle(Color.Yellow, radius = 4f, center = cubic.control0(), style = Stroke(2f))
+        drawLine(Color.Cyan, cubic.anchor0(), cubic.control0(), strokeWidth = 2f)
+        drawCircle(Color.Cyan, radius = 4f, center = cubic.control0(), style = Stroke(2f))
 
         // Draw a circle for the second control point, and a line from it to the end.
         // The curve will end in this direction
-        drawLine(Color.Yellow, cubic.control1(), cubic.anchor1(), strokeWidth = 1f)
-        drawCircle(Color.Yellow, radius = 4f, center = cubic.control1(), style = Stroke(2f))
+        drawLine(Color.Cyan, cubic.control1(), cubic.anchor1(), strokeWidth = 2f)
+        drawCircle(Color.Cyan, radius = 4f, center = cubic.control1(), style = Stroke(2f))
+    }
+    path.close()
+
+    drawPath(path = path, color = color, style = Stroke(2f))
+}
+
+internal fun DrawScope.drawBeziers(shape: RoundedPolygon, scale: Float = 1f, color: Color) {
+    val path = Path()
+    var isFirst = true
+    shape.cubics.forEach {
+        val cubic = it.transformed { x, y -> TransformResult(x * scale, y * scale) }
+        if (isFirst) {
+            path.moveTo(cubic.anchor0X, cubic.anchor0Y)
+            isFirst = false
+        }
+
+        path.cubicTo(
+            cubic.control0X, cubic.control0Y,
+            cubic.control1X, cubic.control1Y,
+            cubic.anchor1X, cubic.anchor1Y,
+        )
+
+        // Draw red circles for start and end.
+        drawCircle(Color.Red, radius = 6f, center = cubic.anchor0(), style = Stroke(2f))
+        drawCircle(Color.Magenta, radius = 8f, center = cubic.anchor1(), style = Stroke(2f))
+
+        // Draw a circle for the first control point, and a line from start to it.
+        // The curve will start in this direction
+        drawLine(Color.Cyan, cubic.anchor0(), cubic.control0(), strokeWidth = 2f)
+        drawCircle(Color.Cyan, radius = 4f, center = cubic.control0(), style = Stroke(2f))
+
+        // Draw a circle for the second control point, and a line from it to the end.
+        // The curve will end in this direction
+        drawLine(Color.Cyan, cubic.control1(), cubic.anchor1(), strokeWidth = 2f)
+        drawCircle(Color.Cyan, radius = 4f, center = cubic.control1(), style = Stroke(2f))
     }
     path.close()
 

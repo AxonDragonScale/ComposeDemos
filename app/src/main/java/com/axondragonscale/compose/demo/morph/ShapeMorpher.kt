@@ -317,7 +317,7 @@ private fun ColumnScope.Controls(
                     onClick = { drawType.value = it },
                     shape = SegmentedButtonDefaults.itemShape(
                         index = it.ordinal,
-                        count = 2,
+                        count = DrawType.entries.size,
                         baseShape = RoundedCornerShape(4.dp)
                     ),
                     colors = SegmentedButtonDefaults.colors(

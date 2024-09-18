@@ -141,4 +141,10 @@ sealed class Route(
         title = "Number Slider",
         description = "Hmm, Wouldn't it be nice if the slider had numbers"
     )
+
+    data object CardCarousel: Route(
+        route = "CardCarousel",
+        title = "Card Carousel",
+        description = "A carousel with cards."
+    )
 }

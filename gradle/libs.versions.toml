@@ -1,23 +1,22 @@
 [versions]
 # Plugin Verions
-androidGradlePlugin = "8.5.0"
-kotlin = "1.9.23"
+androidGradlePlugin = "8.6.1"
+kotlin = "2.0.20"
 
 applicationId = "com.axondragonscale.compose.demo"
 compileSdk = "34"
 minSdk = "26"
 targetSdk = "34"
-composeCompiler = "1.5.11"
 versionCode = "230"
 versionName = "2.3.0"
 
 coreKtx = "1.13.1"
-lifecycle = "2.8.2"
-activityCompose = "1.9.0"
-navigationCompose = "2.7.7"
-composeBom = "2024.06.00"
+lifecycle = "2.8.6"
+activityCompose = "1.9.2"
+navigationCompose = "2.8.1"
+composeBom = "2024.09.02"
 graphicsPath = "1.0.1"
-graphicsShape = "1.0.0-beta01"
+graphicsShape = "1.0.1"
 
 [libraries]
 activity-compose = { module = "androidx.activity:activity-compose", version.ref = "activityCompose" }
@@ -39,6 +38,7 @@ graphics-shape = { module = "androidx.graphics:graphics-shapes", version.ref = "
 [plugins]
 android-application = { id = "com.android.application", version.ref = "androidGradlePlugin" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
 
 [bundles]
 compose = ["compose-ui", "compose-ui-graphics", "compose-ui-tooling-preview", "compose-material3", "compose-material-icons-extended"]

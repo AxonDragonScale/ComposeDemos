@@ -2,7 +2,6 @@ package com.axondragonscale.compose.demo.paracarousel
 
 import android.content.res.Configuration
 import androidx.compose.foundation.BorderStroke
-import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
@@ -58,7 +57,6 @@ private val defaultImages = listOf(
 private const val FrameHeightFraction = 0.8f
 private val FrameHorizontalPadding = 32.dp
 
-@OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun ParallaxCarouselV2(
     modifier: Modifier = Modifier,
@@ -89,7 +87,7 @@ fun ParallaxCarouselV2(
                 modifier = Modifier
                     .wrapContentSize(unbounded = true) // To draw outside card constraints
                     .size(frameWidth, frameHeight)
-                    .offset(frameWidth * pagerState.getOffsetFractionForPage(page)),
+                    .offset(frameWidth * pagerState.getOffsetDistanceInPages(page) * -1),
                 bitmap = ImageBitmap.imageResource(id = images[page]),
                 contentScale = ContentScale.Crop,
                 contentDescription = null
@@ -105,7 +103,7 @@ fun ParallaxCarouselV2(
         horizontalArrangement = Arrangement.Center,
         verticalAlignment = Alignment.CenterVertically,
     ) {
-        (0..images.size).forEach { index ->
+        images.indices.forEach { index ->
             val offset = pagerState.indicatorOffsetForPage(index)
             Box(
                 Modifier
@@ -121,9 +119,8 @@ fun ParallaxCarouselV2(
     }
 }
 
-@OptIn(ExperimentalFoundationApi::class)
 private fun PagerState.indicatorOffsetForPage(index: Int) =
-    1f - getOffsetFractionForPage(index).coerceIn(-1f, 1f).absoluteValue
+    1f - getOffsetDistanceInPages(index).coerceIn(-1f, 1f).absoluteValue
 
 @Preview(name = "Dark", showBackground = true, uiMode = Configuration.UI_MODE_NIGHT_YES)
 @Preview(name = "Light", showBackground = true, uiMode = Configuration.UI_MODE_NIGHT_NO)

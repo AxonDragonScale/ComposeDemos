@@ -27,6 +27,7 @@ import androidx.compose.material3.ExposedDropdownMenuDefaults
 import androidx.compose.material3.LocalContentColor
 import androidx.compose.material3.LocalTextStyle
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.MenuAnchorType
 import androidx.compose.material3.SegmentedButton
 import androidx.compose.material3.SegmentedButtonDefaults
 import androidx.compose.material3.SingleChoiceSegmentedButtonRow
@@ -45,6 +46,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.drawWithContent
+import androidx.compose.ui.draw.scale
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.asComposePath
 import androidx.compose.ui.tooling.preview.Preview
@@ -459,7 +461,7 @@ private fun BaseShapeSelector(
                 modifier = Modifier
                     .defaultMinSize(minHeight = 32.dp)
                     .fillMaxWidth()
-                    .menuAnchor(),
+                    .menuAnchor(MenuAnchorType.PrimaryNotEditable),
                 value = baseShape.name,
                 onValueChange = {},
                 readOnly = true,
@@ -593,6 +595,7 @@ private fun BaseSlider(
     ) {
         Text(text = title)
         Slider(
+            modifier = Modifier.scale(1f, 0.75f),
             value = value,
             onValueChange = onValueChange,
             valueRange = valueRange,

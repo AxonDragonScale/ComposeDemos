@@ -1,7 +1,6 @@
 package com.axondragonscale.compose.demo.pager
 
 import android.content.res.Configuration
-import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
@@ -72,16 +71,17 @@ fun CircularRevealPager(modifier: Modifier = Modifier) {
     }
 }
 
-@OptIn(ExperimentalFoundationApi::class, ExperimentalComposeUiApi::class)
+@OptIn(ExperimentalComposeUiApi::class)
 @Composable
 fun CircularRevealPager(
     modifier: Modifier = Modifier,
     images: List<Int>,
 ) {
-    // pagerState.getOffsetFractionForPage(page)
-    // If page is on Left -> 1
+    // pagerState.getOffsetDistanceInPages(page)
+    // If page is on Left -> -1
     // If pages is the Center -> 0
-    // If page is on Right -> -1
+    // If page is on Right -> 1
+    // If currentPage is 0 and page is 3 -> 3
 
     val pagerState = rememberPagerState { images.size }
     var pointerOffsetY by remember { mutableStateOf(0f) }
@@ -97,14 +97,15 @@ fun CircularRevealPager(
     ) { page ->
         Box(
             modifier = Modifier.graphicsLayer {
-                val pageOffset = pagerState.getOffsetFractionForPage(page)
+                val pageOffset = pagerState.getOffsetDistanceInPages(page)
 
                 // Make the page stay in place (compensates for the pager's scroll)
-                translationX = size.width * pageOffset
+                // +ve offset means right side, so we translate -ve i.e left side
+                translationX = size.width * pageOffset * -1
 
                 // Give circular shape to clip and shadow
                 shape = CircularRevealShape(
-                    revealProgress = 1f + pageOffset,
+                    revealProgress = 1f - pageOffset,
                     origin = Offset(size.width, pointerOffsetY),
                     scale = 2f,
                 )

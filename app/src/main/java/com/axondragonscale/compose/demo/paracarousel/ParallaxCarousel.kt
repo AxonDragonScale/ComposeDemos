@@ -3,7 +3,6 @@ package com.axondragonscale.compose.demo.paracarousel
 import android.content.res.Configuration
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Canvas
-import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -62,7 +61,6 @@ private val defaultImages = listOf(
 private const val FrameHeightFraction = 0.8f
 private val FrameHorizontalPadding = 32.dp
 
-@OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun ParallaxCarousel(
     modifier: Modifier = Modifier,
@@ -97,7 +95,7 @@ fun ParallaxCarousel(
             // Canvas allows drawing outside the card bounds
             val image = ImageBitmap.imageResource(id = images[page])
             Canvas(modifier = Modifier.fillMaxSize()) {
-                translate(left = pagerState.getOffsetFractionForPage(page) * frameWidth) {
+                translate(left = -pagerState.getOffsetDistanceInPages(page) * frameWidth) {
                     val (imageSize, imageOffset) =
                         image.calcSizeAndOffset(frameWidth, frameHeight, density)
                     drawImage(image = image, dstOffset = imageOffset, dstSize = imageSize)
@@ -114,7 +112,7 @@ fun ParallaxCarousel(
         horizontalArrangement = Arrangement.Center,
         verticalAlignment = Alignment.CenterVertically,
     ) {
-        (0..images.size).forEach { index ->
+        images.indices.forEach { index ->
             val offset = pagerState.indicatorOffsetForPage(index)
             Box(
                 Modifier
@@ -131,9 +129,8 @@ fun ParallaxCarousel(
     }
 }
 
-@OptIn(ExperimentalFoundationApi::class)
 private fun PagerState.indicatorOffsetForPage(index: Int) =
-    1f - getOffsetFractionForPage(index).coerceIn(-1f, 1f).absoluteValue
+    1f - getOffsetDistanceInPages(index).coerceIn(-1f, 1f).absoluteValue
 
 private fun ImageBitmap.calcSizeAndOffset(
     frameWidth: Float,

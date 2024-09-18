@@ -2,7 +2,6 @@ package com.axondragonscale.compose.demo.pager
 
 import android.content.res.Configuration
 import androidx.compose.animation.core.FastOutLinearInEasing
-import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
@@ -62,7 +61,6 @@ fun CubePager(modifier: Modifier = Modifier) {
     }
 }
 
-@OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun CubePager(
     modifier: Modifier = Modifier,
@@ -71,10 +69,10 @@ fun CubePager(
     modifier = modifier.fillMaxSize(),
     contentAlignment = Alignment.Center,
 ) {
-    // pagerState.getOffsetFractionForPage(page)
-    // If page is on Left -> 1
+    // pagerState.getOffsetDistanceInPages(page)
+    // If page is on Left -> -1
     // If pages is the Center -> 0
-    // If page is on Right -> -1
+    // If page is on Right -> 1
 
     val pagerState = rememberPagerState { images.size }
 
@@ -84,7 +82,7 @@ fun CubePager(
             .aspectRatio(1f)
             .offset(y = 150.dp)
             .scale(scaleX = .6f, scaleY = .25f)
-            .rotate(pagerState.getOffsetFractionForPage(0) * 90f)
+            .rotate(pagerState.getOffsetDistanceInPages(0) * -90f)
             .blur(
                 radius = 110.dp,
                 edgeTreatment = BlurredEdgeTreatment.Unbounded,
@@ -101,9 +99,9 @@ fun CubePager(
             modifier = Modifier
                 .aspectRatio(1f)
                 .graphicsLayer {
-                    val pageOffset = pagerState.getOffsetFractionForPage(page)
-                    // Page position = right if value < 0 , left is value > 0
-                    val isRightSide = pageOffset < 0f
+                    val pageOffset = pagerState.getOffsetDistanceInPages(page)
+                    // Page position = right if value > 0 , left if value < 0
+                    val isRightSide = pageOffset > 0f
 
                     // Rotate by 90 if its on the right, -90 if its on the left
                     val interpolationFactor =
@@ -122,7 +120,7 @@ fun CubePager(
 
                     // Draw a rect to dim the image as it moves away from center
                     // Offset will be 0 at center, and go to -1/1 as image moves right/left
-                    val offset = pagerState.getOffsetFractionForPage(page).absoluteValue
+                    val offset = pagerState.getOffsetDistanceInPages(page).absoluteValue
                     val dimmingAlpha = offset * 0.5f
                     drawRect(Color.Black.copy(alpha = dimmingAlpha))
                 }

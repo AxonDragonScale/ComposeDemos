@@ -1,7 +1,6 @@
 package com.axondragonscale.compose.demo.scribble
 
 import android.content.res.Configuration
-import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.interaction.Interaction
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Box
@@ -44,7 +43,6 @@ import kotlin.math.floor
  * Created by Ronak Harkhani on 29/04/24
  */
 
-@OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun ScribbleIndicator(modifier: Modifier = Modifier) {
     Column(modifier = modifier) {
@@ -98,7 +96,6 @@ fun ScribbleIndicator(modifier: Modifier = Modifier) {
     }
 }
 
-@OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun ScribbleIndicator(
     modifier: Modifier = Modifier,
@@ -132,7 +129,7 @@ fun ScribbleIndicator(
                     pathLength = currentPathLength
                 }
 
-                val progress = pagerState.getOffsetFractionForPage(0) // 0 -> lastIndex
+                val progress = -1 * pagerState.getOffsetDistanceInPages(0) // 0 -> lastIndex
                 val pageProgress = progress - floor(progress) // progress of current page
 
                 val start = floor(progress).toInt()
@@ -162,10 +159,10 @@ fun ScribbleIndicator(
 }
 
 fun Path.scribbleLoop(width: Float, height: Float, top: Float, bottom: Float, origin: Float) {
-    quadraticBezierTo(origin + width, top, origin + width, height / 2)
-    quadraticBezierTo(origin + width, bottom, origin + width / 2, bottom)
-    quadraticBezierTo(origin, bottom, origin, height / 2)
-    quadraticBezierTo(origin, top, origin + width, top)
+    quadraticTo(origin + width, top, origin + width, height / 2)
+    quadraticTo(origin + width, bottom, origin + width / 2, bottom)
+    quadraticTo(origin, bottom, origin, height / 2)
+    quadraticTo(origin, top, origin + width, top)
 }
 
 object NoInteraction: MutableInteractionSource {

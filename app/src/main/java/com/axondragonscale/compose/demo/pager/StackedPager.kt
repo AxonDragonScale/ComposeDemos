@@ -5,7 +5,6 @@ import android.graphics.RenderEffect
 import android.graphics.Shader
 import android.os.Build
 import androidx.annotation.RequiresApi
-import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -24,7 +23,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.snapshotFlow
 import androidx.compose.ui.Alignment
-import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.ImageBitmap
@@ -79,16 +77,15 @@ fun StackedPager(modifier: Modifier = Modifier) {
  */
 
 @RequiresApi(Build.VERSION_CODES.S)
-@OptIn(ExperimentalFoundationApi::class, ExperimentalComposeUiApi::class)
 @Composable
 fun StackedPager(
     modifier: Modifier = Modifier,
     images: List<Int>,
 ) = Column(modifier = modifier) {
-    // pagerState.getOffsetFractionForPage(page)
-    // If page is on Left -> 1
+    // pagerState.getOffsetDistanceInPages(page)
+    // If page is on Left -> -1
     // If pages is the Center -> 0
-    // If page is on Right -> -1
+    // If page is on Right -> 1
 
     val pagerState = rememberPagerState { images.size }
     HorizontalPager(
@@ -97,9 +94,9 @@ fun StackedPager(
             .padding(vertical = 64.dp),
         state = pagerState,
         pageSpacing = 1.dp,
-        beyondBoundsPageCount = 5,
+        beyondViewportPageCount = 2,
     ) { page ->
-        val pageOffset = pagerState.getOffsetFractionForPage(page)
+        val pageOffset = pagerState.getOffsetDistanceInPages(page)
         // Calculate offset relative to current page
         // 1f for cur page, 0 for left and right pages, -1 for left and right after that, ...
         val curPivotOffset = (1 - pageOffset.absoluteValue)
@@ -109,7 +106,7 @@ fun StackedPager(
                 .zIndex(curPivotOffset * 10f)
                 .graphicsLayer {
                     // Show part of the left and right pages
-                    translationX = size.width * pageOffset / 2
+                    translationX = -1 * size.width * pageOffset / 2
 
                     // Alpha = 1f for cur page, 0.9f for rest
                     // alpha = (9f + curPivotOffset) / 10f

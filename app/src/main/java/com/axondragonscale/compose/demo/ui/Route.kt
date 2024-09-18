@@ -147,4 +147,10 @@ sealed class Route(
         title = "Card Carousel",
         description = "A carousel with cards."
     )
+
+    data object ShimmeringText: Route(
+        route = "ShimmeringText",
+        title = "Shimmering Text",
+        description = "A shimmering text effect"
+    )
 }

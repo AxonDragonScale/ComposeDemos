@@ -4,9 +4,9 @@ androidGradlePlugin = "8.6.1"
 kotlin = "2.0.20"
 
 applicationId = "com.axondragonscale.compose.demo"
-compileSdk = "34"
+compileSdk = "35"
 minSdk = "26"
-targetSdk = "34"
+targetSdk = "35"
 versionCode = "230"
 versionName = "2.3.0"
 
@@ -27,6 +27,7 @@ navigation-compose = { module = "androidx.navigation:navigation-compose", versio
 compose-bom = { module = "androidx.compose:compose-bom", version.ref = "composeBom" }
 compose-ui = { module = "androidx.compose.ui:ui" }
 compose-ui-graphics = { module = "androidx.compose.ui:ui-graphics" }
+compose-animation = { module = "androidx.compose.animation:animation", version = "1.8.0-alpha02" }
 compose-material3 = { module = "androidx.compose.material3:material3" }
 compose-material-icons-extended = { module = "androidx.compose.material:material-icons-extended" }
 compose-ui-tooling = { module = "androidx.compose.ui:ui-tooling" }
@@ -41,7 +42,7 @@ kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
 
 [bundles]
-compose = ["compose-ui", "compose-ui-graphics", "compose-ui-tooling-preview", "compose-material3", "compose-material-icons-extended"]
+compose = ["compose-ui", "compose-ui-graphics", "compose-animation", "compose-ui-tooling-preview", "compose-material3", "compose-material-icons-extended"]
 composeDebug = ["compose-ui-tooling", "compose-ui-test-manifest"]
 lifecycle = ["lifecycle-runtime-ktx", "lifecycle-runtime-compose"]
 graphics = ["graphics-path", "graphics-shape"]

@@ -7,6 +7,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.axondragonscale.compose.demo.border.AnimatedBorder
 import com.axondragonscale.compose.demo.bottombar.BottomBar
+import com.axondragonscale.compose.demo.button.SegmentedButton
 import com.axondragonscale.compose.demo.carousel.CardCarousel
 import com.axondragonscale.compose.demo.circle.CircleLayout
 import com.axondragonscale.compose.demo.counter.Counter
@@ -146,6 +147,10 @@ fun DemoApp() {
 
         composable(route = Route.ShimmeringText.route) {
             ShimmeringText()
+        }
+
+        composable(route = Route.SegmentedButton.route) {
+            SegmentedButton()
         }
     }
 }

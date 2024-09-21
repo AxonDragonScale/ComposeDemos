@@ -153,4 +153,10 @@ sealed class Route(
         title = "Shimmering Text",
         description = "A shimmering text effect"
     )
+
+    data object SegmentedButton: Route(
+        route = "SegmentedButton",
+        title = "Segmented Button",
+        description = "A Segmented Button with movement animation for selected item using Lookahead"
+    )
 }

@@ -139,24 +139,30 @@ sealed class Route(
     data object NumberSlider: Route(
         route = "NumberSlider",
         title = "Number Slider",
-        description = "Hmm, Wouldn't it be nice if the slider had numbers"
+        description = "Hmm, Wouldn't it be nice if the slider had numbers."
     )
 
     data object CardCarousel: Route(
         route = "CardCarousel",
         title = "Card Carousel",
-        description = "A carousel with cards."
+        description = "A carousel with cards"
     )
 
     data object ShimmeringText: Route(
         route = "ShimmeringText",
         title = "Shimmering Text",
-        description = "A shimmering text effect"
+        description = "A shimmering text effect."
     )
 
     data object SegmentedButton: Route(
         route = "SegmentedButton",
         title = "Segmented Button",
-        description = "A Segmented Button with movement animation for selected item using Lookahead"
+        description = "A Segmented Button with movement animation for selected item using Lookahead."
+    )
+
+    data object RampSlider: Route(
+        route = "RampSlider",
+        title = "Ramp Slider",
+        description = "A slider where the portion being dragged is raised as a curve."
     )
 }

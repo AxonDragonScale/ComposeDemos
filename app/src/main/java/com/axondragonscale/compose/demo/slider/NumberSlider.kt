@@ -175,7 +175,7 @@ private fun NumberSlider(
 // Defaults
 
 @Composable
-fun DefaultCenterMarker() {
+private fun DefaultCenterMarker() {
     Box(
         modifier = Modifier
             .width(2.dp)
@@ -185,12 +185,12 @@ fun DefaultCenterMarker() {
 }
 
 @Composable
-fun DefaultValueMarker(number: Float) {
+private fun DefaultValueMarker(number: Float) {
     Text(text = DecimalFormat("#.#").format(number))
 }
 
 @Composable
-fun DefaultTextMarker(number: Int, isSelected: Boolean) {
+private fun DefaultTextMarker(number: Int, isSelected: Boolean) {
     Text(
         text = number.toString(),
         fontWeight = if (isSelected) FontWeight.Bold else FontWeight.Normal
@@ -198,7 +198,7 @@ fun DefaultTextMarker(number: Int, isSelected: Boolean) {
 }
 
 @Composable
-fun DefaultRulerMarker(isSelected: Boolean) {
+private fun DefaultRulerMarker(isSelected: Boolean) {
     val alpha = if (isSelected) 1f else 0.5f
     Box(
         modifier = Modifier

@@ -28,6 +28,7 @@ import com.axondragonscale.compose.demo.shake.Shake
 import com.axondragonscale.compose.demo.shimmer.Shimmer
 import com.axondragonscale.compose.demo.shimmer.ShimmeringText
 import com.axondragonscale.compose.demo.slider.NumberSlider
+import com.axondragonscale.compose.demo.slider.RampSlider
 import com.axondragonscale.compose.demo.typewriter.Typewriter
 
 /**
@@ -151,6 +152,10 @@ fun DemoApp() {
 
         composable(route = Route.SegmentedButton.route) {
             SegmentedButton()
+        }
+
+        composable(route = Route.RampSlider.route) {
+            RampSlider()
         }
     }
 }

@@ -1,9 +1,7 @@
 package com.axondragonscale.compose.demo.slider
 
 import android.content.res.Configuration
-import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
-import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.gestures.animateScrollBy
 import androidx.compose.foundation.gestures.snapping.rememberSnapFlingBehavior
@@ -36,7 +34,6 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.composed
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.onGloballyPositioned
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.text.font.FontWeight
@@ -55,20 +52,51 @@ import kotlin.math.abs
 
 @Composable
 fun NumberSlider() {
-    Box(
+    Column(
         modifier = Modifier.fillMaxSize(),
-        contentAlignment = Alignment.Center
+        verticalArrangement = Arrangement.Center
     ) {
         var value by remember { mutableFloatStateOf(1f) }
         NumberSlider(
-            modifier = Modifier.padding(16.dp),
+            modifier = Modifier.padding(24.dp),
             value = value,
             onValueChange = { value = it },
+        )
+
+        var value2 by remember { mutableFloatStateOf(0f) }
+        NumberSlider(
+            modifier = Modifier.padding(24.dp),
+            value = value2,
+            valueRange = 0..60,
+            onValueChange = { value2 = it },
+            step = 1f,
+            stepSpacing = 12.dp,
+            centerMarker = {
+                Box(
+                    modifier = Modifier
+                        .width(3.dp)
+                        .height(24.dp)
+                        .background(color = MaterialTheme.colorScheme.onBackground)
+                )
+            },
+            rulerMarker = { number, isSelected ->
+                val isProminent = number.toInt() % 10 == 0
+                    Box(
+                        modifier = Modifier
+                            .width(2.dp)
+                            .height(if (isProminent) 18.dp else 12.dp)
+                            .background(
+                                if (isProminent)
+                                    MaterialTheme.colorScheme.onBackground
+                                else
+                                    MaterialTheme.colorScheme.outline
+                            )
+                    )
+            }
         )
     }
 }
 
-@OptIn(ExperimentalFoundationApi::class)
 @Composable
 private fun NumberSlider(
     modifier: Modifier = Modifier,
@@ -81,10 +109,11 @@ private fun NumberSlider(
         { DefaultCenterMarker() },
     valueMarker: @Composable (number: Float) -> Unit =
         { number -> DefaultValueMarker(number) },
-    textMarker: @Composable (BoxScope.(number: Int, isSelected: Boolean) -> Unit) =
-        { number, isSelected -> DefaultTextMarker(number, isSelected) },
-    rulerMarker: @Composable (BoxScope.(isSelected: Boolean) -> Unit) =
-        { isSelected -> DefaultRulerMarker(isSelected) },
+    rulerMarker: @Composable (BoxScope.(number: Float, isSelected: Boolean) -> Unit) =
+        { number, isSelected ->
+            if (number.isWholeNumber()) DefaultTextMarker(number.toInt(), isSelected)
+            else DefaultRulerMarker(isSelected)
+        },
 ) {
     val density = LocalDensity.current
     val scope = rememberCoroutineScope()
@@ -130,9 +159,7 @@ private fun NumberSlider(
                             scope.launch { listState.centralizeItem(index) }
                         }
                     ) {
-                        val isSelected = centerIndex == index
-                        if (number.isWholeNumber()) textMarker(number.toInt(), isSelected)
-                        else rulerMarker(isSelected)
+                        rulerMarker(number, centerIndex == index)
                     }
                 }
             }

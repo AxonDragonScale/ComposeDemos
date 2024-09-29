@@ -86,6 +86,8 @@ fun RampSlider(modifier: Modifier = Modifier) {
     }
 }
 
+// Reference - https://www.sinasamaki.com/custom-material-3-sliders-in-jetpack-compose/
+
 @Composable
 private fun RampSlider(
     modifier: Modifier = Modifier,

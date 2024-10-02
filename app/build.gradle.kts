@@ -66,4 +66,6 @@ dependencies {
     implementation(platform(libs.compose.bom))
     implementation(libs.bundles.compose)
     debugImplementation(libs.bundles.composeDebug)
+
+    implementation(kotlin("reflect"))
 }

@@ -39,35 +39,6 @@ import com.axondragonscale.compose.demo.ui.theme.ComposeDemosTheme
  * Created by Ronak Harkhani on 21/04/24
  */
 
-private val DemoItems = listOf(
-    Route.ParallaxCarousel,
-    Route.ParallaxCarouselV2,
-    Route.Typewriter,
-    Route.Shimmer,
-    Route.Loaders,
-    Route.CircleLayout,
-    Route.RadialList,
-    Route.AnimatedBorder,
-    Route.CardFlip,
-    Route.FluidFab,
-    Route.Counter,
-    Route.CubePager,
-    Route.CircularRevealPager,
-    Route.StackedPager,
-    Route.Shake,
-    Route.ScribbleIndicator,
-    Route.Shaders,
-    Route.ShapesAndMorph,
-    Route.BottomBar,
-    Route.ProgressBar,
-    Route.NumberSlider,
-    Route.CardCarousel,
-    Route.ShimmeringText,
-    Route.SegmentedButton,
-    Route.RampSlider,
-    Route.MorphLoaders,
-)
-
 @Composable
 fun Home(
     modifier: Modifier = Modifier,
@@ -114,7 +85,7 @@ fun Home(
                 verticalArrangement = Arrangement.spacedBy(12.dp)
             ) {
                 item { Spacer(modifier = Modifier.height(0.dp)) }
-                items(DemoItems) {
+                items(Route.All) {
                     ListItem(
                         modifier = Modifier
                             .clip(RoundedCornerShape(12.dp))

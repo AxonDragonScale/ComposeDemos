@@ -6,29 +6,26 @@ import androidx.compose.animation.core.AnimationVector1D
 import androidx.compose.animation.core.spring
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ColumnScope
-import androidx.compose.foundation.layout.ExperimentalLayoutApi
-import androidx.compose.foundation.layout.FlowRow
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.lazy.grid.GridCells
+import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
+import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.LocalContentColor
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.SegmentedButton
 import androidx.compose.material3.SegmentedButtonDefaults
 import androidx.compose.material3.SingleChoiceSegmentedButtonRow
 import androidx.compose.material3.Slider
-import androidx.compose.material3.SliderDefaults
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -226,7 +223,6 @@ internal fun ShapeMorpher(modifier: Modifier = Modifier) {
     }
 }
 
-@OptIn(ExperimentalLayoutApi::class)
 @Composable
 private fun ShapeList(
     modifier: Modifier = Modifier,
@@ -235,18 +231,17 @@ private fun ShapeList(
     morphProgress: Animatable<Float, AnimationVector1D>,
 ) {
     val scope = rememberCoroutineScope()
-    FlowRow(
+    LazyVerticalGrid(
         modifier = modifier.fillMaxWidth(),
-        maxItemsInEachRow = 5
+        columns = GridCells.Fixed(5),
     ) {
-        shapes.forEach { shape ->
+        items(shapes) { shape ->
             val borderAlpha = if (shape == currShape.value) 1f else 0f +
                     if (shape == prevShape.value) 1f - morphProgress.value else 0f
 
             Box(
                 modifier = Modifier
-                    .weight(1f)
-//                    .fillMaxWidth(0.2f)
+                    .fillMaxSize()
                     .aspectRatio(1f)
                     .clickable {
                         scope.launch {
@@ -295,7 +290,6 @@ private fun ShapeBox(
     )
 }
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 private fun ColumnScope.Controls(
     modifier: Modifier = Modifier,

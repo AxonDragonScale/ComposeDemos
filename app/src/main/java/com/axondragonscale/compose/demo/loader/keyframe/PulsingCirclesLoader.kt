@@ -1,4 +1,4 @@
-package com.axondragonscale.compose.demo.loader
+package com.axondragonscale.compose.demo.loader.keyframe
 
 import android.content.res.Configuration
 import androidx.compose.animation.core.LinearEasing

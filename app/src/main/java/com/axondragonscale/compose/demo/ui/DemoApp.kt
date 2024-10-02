@@ -13,7 +13,8 @@ import com.axondragonscale.compose.demo.circle.CircleLayout
 import com.axondragonscale.compose.demo.counter.Counter
 import com.axondragonscale.compose.demo.flip.CardFlip
 import com.axondragonscale.compose.demo.fluildfab.FluidFab
-import com.axondragonscale.compose.demo.loader.Loaders
+import com.axondragonscale.compose.demo.loader.keyframe.Loaders
+import com.axondragonscale.compose.demo.loader.morph.MorphLoaders
 import com.axondragonscale.compose.demo.morph.ShapesAndMorph
 import com.axondragonscale.compose.demo.pager.CircularRevealPager
 import com.axondragonscale.compose.demo.pager.CubePager
@@ -156,6 +157,10 @@ fun DemoApp() {
 
         composable(route = Route.RampSlider.route) {
             RampSlider()
+        }
+
+        composable(route = Route.MorphLoaders.route) {
+            MorphLoaders()
         }
     }
 }

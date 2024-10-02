@@ -65,6 +65,7 @@ private val DemoItems = listOf(
     Route.ShimmeringText,
     Route.SegmentedButton,
     Route.RampSlider,
+    Route.MorphLoaders,
 )
 
 @Composable

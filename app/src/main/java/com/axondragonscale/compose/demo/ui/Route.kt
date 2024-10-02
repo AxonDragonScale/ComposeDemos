@@ -165,4 +165,10 @@ sealed class Route(
         title = "Ramp Slider",
         description = "A slider where the portion being dragged is raised as a curve."
     )
+
+    data object MorphLoaders: Route(
+        route = "MorphLoaders",
+        title = "Morph Loaders",
+        description = "Fun loaders created with shape morphing"
+    )
 }

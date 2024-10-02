@@ -62,7 +62,7 @@ fun Home(
         Text(
             modifier = Modifier
                 .align(Alignment.Start)
-                .padding(top = 4.dp, bottom = 24.dp)
+                .padding(top = 4.dp)
                 .padding(horizontal = 20.dp),
             text = "App Version: ${BuildConfig.VERSION_NAME}",
             style = MaterialTheme.typography.labelMedium

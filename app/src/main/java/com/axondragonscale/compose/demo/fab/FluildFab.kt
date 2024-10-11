@@ -1,4 +1,4 @@
-package com.axondragonscale.compose.demo.fluildfab
+package com.axondragonscale.compose.demo.fab
 
 import android.content.res.Configuration
 import android.graphics.ColorMatrixColorFilter

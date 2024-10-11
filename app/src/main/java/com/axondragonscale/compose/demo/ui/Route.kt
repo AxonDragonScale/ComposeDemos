@@ -8,7 +8,8 @@ import com.axondragonscale.compose.demo.carousel.CardCarousel
 import com.axondragonscale.compose.demo.circle.CircleLayout
 import com.axondragonscale.compose.demo.counter.Counter
 import com.axondragonscale.compose.demo.flip.CardFlip
-import com.axondragonscale.compose.demo.fluildfab.FluidFab
+import com.axondragonscale.compose.demo.fab.FluidFab
+import com.axondragonscale.compose.demo.fab.ExpandingFab
 import com.axondragonscale.compose.demo.loader.keyframe.Loaders
 import com.axondragonscale.compose.demo.loader.morph.MorphLoaders
 import com.axondragonscale.compose.demo.morph.ShapesAndMorph
@@ -232,5 +233,12 @@ sealed class Route(
         title = "Morph Loaders",
         description = "Fun loaders created with shape morphing",
         composable = { MorphLoaders() }
+    )
+
+    data object ExpandingFab: Route(
+        route = "ExpandingFab",
+        title = "Expanding FAB",
+        description = "A vertically expanding FAB",
+        composable = { ExpandingFab() }
     )
 }

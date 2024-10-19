@@ -60,6 +60,8 @@ import kotlinx.coroutines.launch
  * Created by Ronak Harkhani on 19/10/24
  */
 
+// Inspired by - https://www.sinasamaki.com/implementing-overslide-slider-interaction-in-jetpack-compose/
+
 @Composable
 fun StretchySlider(modifier: Modifier = Modifier) {
     Column(

@@ -27,6 +27,7 @@ import com.axondragonscale.compose.demo.shimmer.Shimmer
 import com.axondragonscale.compose.demo.shimmer.ShimmeringText
 import com.axondragonscale.compose.demo.slider.NumberSlider
 import com.axondragonscale.compose.demo.slider.RampSlider
+import com.axondragonscale.compose.demo.slider.StretchySlider
 import com.axondragonscale.compose.demo.typewriter.Typewriter
 
 /**
@@ -241,4 +242,12 @@ sealed class Route(
         description = "A vertically expanding FAB",
         composable = { ExpandingFab() }
     )
+
+    data object StretchySlider: Route(
+        route = "StretchySlider",
+        title = "Stretchy Slider",
+        description = "A slider that stretches when being dragged",
+        composable = { StretchySlider() }
+    )
+
 }

@@ -131,6 +131,7 @@ private fun StretchySlider(
             Box(
                 modifier = Modifier
                     .trackOverslide(value) { overslide ->
+                        val overslide = overslide.coerceIn(-0.5f, 0.5f)
                         transformOrigin = TransformOrigin(
                             pivotFractionX = if (progress < 0.5f) 2f else -1f,
                             pivotFractionY = 0.5f

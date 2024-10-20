@@ -10,6 +10,7 @@ import com.axondragonscale.compose.demo.counter.Counter
 import com.axondragonscale.compose.demo.flip.CardFlip
 import com.axondragonscale.compose.demo.fab.FluidFab
 import com.axondragonscale.compose.demo.fab.ExpandingFab
+import com.axondragonscale.compose.demo.loader.HexagonLoader
 import com.axondragonscale.compose.demo.loader.keyframe.Loaders
 import com.axondragonscale.compose.demo.loader.morph.MorphLoaders
 import com.axondragonscale.compose.demo.morph.ShapesAndMorph
@@ -232,22 +233,29 @@ sealed class Route(
     data object MorphLoaders: Route(
         route = "MorphLoaders",
         title = "Morph Loaders",
-        description = "Fun loaders created with shape morphing",
+        description = "Fun loaders created with shape morphing.",
         composable = { MorphLoaders() }
     )
 
     data object ExpandingFab: Route(
         route = "ExpandingFab",
         title = "Expanding FAB",
-        description = "A vertically expanding FAB",
+        description = "A vertically expanding FAB.",
         composable = { ExpandingFab() }
     )
 
     data object StretchySlider: Route(
         route = "StretchySlider",
         title = "Stretchy Slider",
-        description = "A slider that stretches when being dragged",
+        description = "A slider that stretches when being dragged.",
         composable = { StretchySlider() }
+    )
+
+    data object HexagonLoader: Route(
+        route = "HexagonLoader",
+        title = "Hexagon Loader",
+        description = "A custom drawn hexagon shaped Loader.",
+        composable = { HexagonLoader() }
     )
 
 }

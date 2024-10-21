@@ -7,6 +7,7 @@ import com.axondragonscale.compose.demo.button.SegmentedButton
 import com.axondragonscale.compose.demo.carousel.CardCarousel
 import com.axondragonscale.compose.demo.circle.CircleLayout
 import com.axondragonscale.compose.demo.counter.Counter
+import com.axondragonscale.compose.demo.effect.GlowingEffect
 import com.axondragonscale.compose.demo.flip.CardFlip
 import com.axondragonscale.compose.demo.fab.FluidFab
 import com.axondragonscale.compose.demo.fab.ExpandingFab
@@ -256,6 +257,13 @@ sealed class Route(
         title = "Hexagon Loader",
         description = "A custom drawn hexagon shaped Loader.",
         composable = { HexagonLoader() }
+    )
+
+    data object GlowEffect: Route(
+        route = "GlowEffect",
+        title = "Glow Effect",
+        description = "A Glow Effect.",
+        composable = { GlowingEffect() }
     )
 
 }

@@ -23,6 +23,7 @@ import com.axondragonscale.compose.demo.paracarousel.ParallaxCarouselV2
 import com.axondragonscale.compose.demo.progressbar.ProgressBar
 import com.axondragonscale.compose.demo.radial.RadialList
 import com.axondragonscale.compose.demo.scribble.ScribbleIndicator
+import com.axondragonscale.compose.demo.sensor.Accelerometer
 import com.axondragonscale.compose.demo.shaders.Shaders
 import com.axondragonscale.compose.demo.shake.Shake
 import com.axondragonscale.compose.demo.shimmer.Shimmer
@@ -266,4 +267,10 @@ sealed class Route(
         composable = { GlowingEffect() }
     )
 
+    data object Accelerometer: Route(
+        route = "Accelerometer",
+        title = "Accelerometer",
+        description = "A Tiny demo for Accelerometer.",
+        composable = { Accelerometer() }
+    )
 }

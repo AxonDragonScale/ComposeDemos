@@ -1,9 +1,12 @@
 package com.axondragonscale.compose.demo.ui
 
 import android.content.res.Configuration
+import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -12,12 +15,16 @@ import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.KeyboardArrowRight
+import androidx.compose.material.icons.filled.DarkMode
+import androidx.compose.material.icons.filled.LightMode
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Icon
+import androidx.compose.material3.IconToggleButton
 import androidx.compose.material3.ListItem
 import androidx.compose.material3.ListItemDefaults
 import androidx.compose.material3.MaterialTheme
@@ -43,30 +50,54 @@ import com.axondragonscale.compose.demo.ui.theme.ComposeDemosTheme
 fun Home(
     modifier: Modifier = Modifier,
     navController: NavController,
+    darkTheme: Boolean,
+    onDarkThemeToggle: (Boolean) -> Unit,
 ) {
     Column(
         modifier = modifier.fillMaxSize(),
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
-        Text(
+        Row(
             modifier = Modifier
                 .align(Alignment.Start)
                 .padding(top = 36.dp)
-                .padding(horizontal = 16.dp),
-            text = "Compose Demos",
-            style = MaterialTheme.typography.displaySmall,
-            color = MaterialTheme.colorScheme.primary,
-            fontWeight = FontWeight.Bold,
-        )
+        ) {
+            Column {
+                Text(
+                    modifier = Modifier.padding(horizontal = 16.dp),
+                    text = "Compose Demos",
+                    style = MaterialTheme.typography.displaySmall,
+                    color = MaterialTheme.colorScheme.primary,
+                    fontWeight = FontWeight.Bold,
+                )
 
-        Text(
-            modifier = Modifier
-                .align(Alignment.Start)
-                .padding(top = 4.dp)
-                .padding(horizontal = 20.dp),
-            text = "App Version: ${BuildConfig.VERSION_NAME}",
-            style = MaterialTheme.typography.labelMedium
-        )
+                Text(
+                    modifier = Modifier
+                        .padding(top = 4.dp)
+                        .padding(horizontal = 20.dp),
+                    text = "App Version: ${BuildConfig.VERSION_NAME}",
+                    style = MaterialTheme.typography.labelMedium
+                )
+            }
+
+            Spacer(modifier = Modifier.weight(1f))
+
+            IconToggleButton(
+                modifier = Modifier
+                    .padding(end = 16.dp)
+                    .align(Alignment.CenterVertically)
+                    .background(MaterialTheme.colorScheme.surfaceVariant, CircleShape)
+                    .clip(CircleShape),
+                checked = darkTheme,
+                onCheckedChange = onDarkThemeToggle,
+            ) {
+                Icon(
+                    imageVector = if (darkTheme) Icons.Default.LightMode else Icons.Default.DarkMode,
+                    contentDescription = null,
+                    tint = MaterialTheme.colorScheme.primary,
+                )
+            }
+        }
 
         Card(
             modifier = Modifier
@@ -76,7 +107,7 @@ fun Home(
             colors = CardDefaults.cardColors(
                 containerColor = MaterialTheme.colorScheme.primary
             ),
-            elevation = CardDefaults.cardElevation(defaultElevation = 8.dp)
+            elevation = CardDefaults.cardElevation(defaultElevation = 4.dp)
         ) {
             LazyColumn(
                 modifier = Modifier
@@ -133,6 +164,8 @@ private fun Preview() {
             Home(
                 modifier = Modifier,
                 navController = rememberNavController(),
+                darkTheme = isSystemInDarkTheme(),
+                onDarkThemeToggle = {}
             )
         }
     }

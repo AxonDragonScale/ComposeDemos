@@ -31,6 +31,7 @@ import com.axondragonscale.compose.demo.shimmer.ShimmeringText
 import com.axondragonscale.compose.demo.slider.NumberSlider
 import com.axondragonscale.compose.demo.slider.RampSlider
 import com.axondragonscale.compose.demo.slider.StretchySlider
+import com.axondragonscale.compose.demo.spinner.Spinner
 import com.axondragonscale.compose.demo.typewriter.Typewriter
 
 /**
@@ -272,5 +273,12 @@ sealed class Route(
         title = "Accelerometer",
         description = "A Tiny demo for Accelerometer.",
         composable = { Accelerometer() }
+    )
+
+    data object Spinner: Route(
+        route = "Spinner",
+        title = "Spinner",
+        description = "An iOS like spinner for selecting items.",
+        composable = { Spinner() }
     )
 }

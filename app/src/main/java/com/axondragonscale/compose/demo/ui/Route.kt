@@ -12,6 +12,7 @@ import com.axondragonscale.compose.demo.flip.CardFlip
 import com.axondragonscale.compose.demo.fab.FluidFab
 import com.axondragonscale.compose.demo.fab.ExpandingFab
 import com.axondragonscale.compose.demo.loader.HexagonLoader
+import com.axondragonscale.compose.demo.loader.RingLoaderScreen
 import com.axondragonscale.compose.demo.loader.keyframe.Loaders
 import com.axondragonscale.compose.demo.loader.morph.MorphLoaders
 import com.axondragonscale.compose.demo.morph.ShapesAndMorph
@@ -280,5 +281,12 @@ sealed class Route(
         title = "Spinner",
         description = "An iOS like spinner for selecting items.",
         composable = { Spinner() }
+    )
+
+    data object RingLoader: Route(
+        route = "RingLoader",
+        title = "Ring Loader",
+        description = "A loader with three Rings.",
+        composable = { RingLoaderScreen() }
     )
 }

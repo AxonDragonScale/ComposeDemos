@@ -14,7 +14,7 @@ coreKtx = "1.15.0"
 lifecycle = "2.8.7"
 activityCompose = "1.9.3"
 navigationCompose = "2.8.3"
-composeBom = "2024.10.01"
+composeBom = "2025.01.00"
 graphicsPath = "1.0.1"
 graphicsShape = "1.0.1"
 

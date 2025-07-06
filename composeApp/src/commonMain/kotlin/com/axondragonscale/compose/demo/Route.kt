@@ -5,15 +5,15 @@ import androidx.compose.runtime.Composable
 //import com.axondragonscale.compose.demo.bottombar.BottomBar
 //import com.axondragonscale.compose.demo.button.SegmentedButton
 //import com.axondragonscale.compose.demo.carousel.CardCarousel
-//import com.axondragonscale.compose.demo.circle.CircleLayout
+import com.axondragonscale.compose.demo.circle.CircleLayout
 //import com.axondragonscale.compose.demo.counter.Counter
 //import com.axondragonscale.compose.demo.effect.GlowingEffect
 //import com.axondragonscale.compose.demo.flip.CardFlip
 //import com.axondragonscale.compose.demo.fab.FluidFab
 //import com.axondragonscale.compose.demo.fab.ExpandingFab
-//import com.axondragonscale.compose.demo.loader.HexagonLoader
-//import com.axondragonscale.compose.demo.loader.RingLoaderScreen
-//import com.axondragonscale.compose.demo.loader.keyframe.Loaders
+import com.axondragonscale.compose.demo.loader.HexagonLoader
+import com.axondragonscale.compose.demo.loader.RingLoaderScreen
+import com.axondragonscale.compose.demo.loader.keyframe.Loaders
 //import com.axondragonscale.compose.demo.loader.morph.MorphLoaders
 //import com.axondragonscale.compose.demo.morph.ShapesAndMorph
 //import com.axondragonscale.compose.demo.pager.CircularRevealPager
@@ -54,6 +54,10 @@ sealed class Route(
             Route.Typewriter,
             Route.Shimmer,
             Route.ShimmeringText,
+            Route.Loaders,
+            Route.HexagonLoader,
+            Route.RingLoader,
+            Route.CircleLayout,
         )
     }
 
@@ -92,20 +96,20 @@ sealed class Route(
         composable = { Shimmer() }
     )
 
-//    data object Loaders: Route(
-//        route = "Loaders",
-//        title = "Loaders",
-//        description = "Various Loader animations.",
-//        composable = { Loaders() }
-//    )
-//
-//    data object CircleLayout: Route(
-//        route = "CircleLayout",
-//        title = "Circle Layout",
-//        description = "A layout that arranges the child elements in a circle.",
-//        composable = { CircleLayout() }
-//    )
-//
+    data object Loaders: Route(
+        route = "Loaders",
+        title = "Loaders",
+        description = "Various Loader animations.",
+        composable = { Loaders() }
+    )
+
+    data object CircleLayout: Route(
+        route = "CircleLayout",
+        title = "Circle Layout",
+        description = "A layout that arranges the child elements in a circle.",
+        composable = { CircleLayout() }
+    )
+
 //    data object RadialList: Route(
 //        route = "RadialList",
 //        title = "Radial List",
@@ -238,14 +242,14 @@ sealed class Route(
 //        description = "A slider where the portion being dragged is raised as a curve.",
 //        composable = { RampSlider() }
 //    )
-//
+
 //    data object MorphLoaders: Route(
 //        route = "MorphLoaders",
 //        title = "Morph Loaders",
 //        description = "Fun loaders created with shape morphing.",
 //        composable = { MorphLoaders() }
 //    )
-//
+
 //    data object ExpandingFab: Route(
 //        route = "ExpandingFab",
 //        title = "Expanding FAB",
@@ -259,14 +263,14 @@ sealed class Route(
 //        description = "A slider that stretches when being dragged.",
 //        composable = { StretchySlider() }
 //    )
-//
-//    data object HexagonLoader: Route(
-//        route = "HexagonLoader",
-//        title = "Hexagon Loader",
-//        description = "A custom drawn hexagon shaped Loader.",
-//        composable = { HexagonLoader() }
-//    )
-//
+
+    data object HexagonLoader: Route(
+        route = "HexagonLoader",
+        title = "Hexagon Loader",
+        description = "A custom drawn hexagon shaped Loader.",
+        composable = { HexagonLoader() }
+    )
+
 //    data object GlowEffect: Route(
 //        route = "GlowEffect",
 //        title = "Glow Effect",
@@ -287,11 +291,11 @@ sealed class Route(
 //        description = "An iOS like spinner for selecting items.",
 //        composable = { Spinner() }
 //    )
-//
-//    data object RingLoader: Route(
-//        route = "RingLoader",
-//        title = "Ring Loader",
-//        description = "A loader with three Rings.",
-//        composable = { RingLoaderScreen() }
-//    )
+
+    data object RingLoader: Route(
+        route = "RingLoader",
+        title = "Ring Loader",
+        description = "A loader with three Rings.",
+        composable = { RingLoaderScreen() }
+    )
 }

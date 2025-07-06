@@ -1,48 +1,35 @@
 [versions]
-# Plugin Verions
-androidGradlePlugin = "8.11.0"
+agp = "8.11.0"
+android-compileSdk = "36"
+android-minSdk = "24"
+android-targetSdk = "36"
+androidx-activity = "1.10.1"
+androidx-appcompat = "1.7.1"
+androidx-constraintlayout = "2.2.1"
+androidx-core = "1.16.0"
+androidx-lifecycle = "2.9.1"
+composeHotReload = "1.0.0-beta03"
+composeMultiplatform = "1.8.2"
 kotlin = "2.2.0"
-
-applicationId = "com.axondragonscale.compose.demo"
-compileSdk = "36"
-minSdk = "26"
-targetSdk = "36"
-versionCode = "230"
-versionName = "2.3.0"
-
-coreKtx = "1.16.0"
-lifecycle = "2.9.1"
-activityCompose = "1.10.1"
-navigationCompose = "2.9.0"
-composeBom = "2025.06.01"
-graphicsPath = "1.0.1"
-graphicsShape = "1.0.1"
+kotlinx-coroutines = "1.10.2"
+kotlinx-datetime = "0.7.0"
+navigation-compose = "2.9.0-beta03"
 
 [libraries]
-activity-compose = { module = "androidx.activity:activity-compose", version.ref = "activityCompose" }
-core-ktx = { module = "androidx.core:core-ktx", version.ref = "coreKtx" }
-lifecycle-runtime-ktx = { module = "androidx.lifecycle:lifecycle-runtime-ktx", version.ref = "lifecycle" }
-lifecycle-runtime-compose = { module = "androidx.lifecycle:lifecycle-runtime-compose", version.ref = "lifecycle" }
-navigation-compose = { module = "androidx.navigation:navigation-compose", version.ref = "navigationCompose" }
-compose-bom = { module = "androidx.compose:compose-bom", version.ref = "composeBom" }
-compose-ui = { module = "androidx.compose.ui:ui" }
-compose-ui-graphics = { module = "androidx.compose.ui:ui-graphics" }
-compose-animation = { module = "androidx.compose.animation:animation", version = "1.8.3" }
-compose-material3 = { module = "androidx.compose.material3:material3" }
-compose-material-icons-extended = { module = "androidx.compose.material:material-icons-extended" }
-compose-ui-tooling = { module = "androidx.compose.ui:ui-tooling" }
-compose-ui-tooling-preview = { module = "androidx.compose.ui:ui-tooling-preview" }
-compose-ui-test-manifest = { module = "androidx.compose.ui:ui-test-manifest" }
-graphics-path = { module = "androidx.graphics:graphics-path", version.ref = "graphicsPath" }
-graphics-shape = { module = "androidx.graphics:graphics-shapes", version.ref = "graphicsShape" }
+androidx-core-ktx = { module = "androidx.core:core-ktx", version.ref = "androidx-core" }
+androidx-appcompat = { module = "androidx.appcompat:appcompat", version.ref = "androidx-appcompat" }
+androidx-constraintlayout = { module = "androidx.constraintlayout:constraintlayout", version.ref = "androidx-constraintlayout" }
+androidx-activity-compose = { module = "androidx.activity:activity-compose", version.ref = "androidx-activity" }
+androidx-lifecycle-viewmodel = { module = "org.jetbrains.androidx.lifecycle:lifecycle-viewmodel", version.ref = "androidx-lifecycle" }
+androidx-lifecycle-runtimeCompose = { module = "org.jetbrains.androidx.lifecycle:lifecycle-runtime-compose", version.ref = "androidx-lifecycle" }
+kotlinx-coroutinesSwing = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-swing", version.ref = "kotlinx-coroutines" }
+kotlinx-datetime = { module = "org.jetbrains.kotlinx:kotlinx-datetime", version.ref = "kotlinx-datetime" }
+navigation-compose = { module = "org.jetbrains.androidx.navigation:navigation-compose", version.ref = "navigation-compose" }
 
 [plugins]
-android-application = { id = "com.android.application", version.ref = "androidGradlePlugin" }
-kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
-compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
-
-[bundles]
-compose = ["compose-ui", "compose-ui-graphics", "compose-animation", "compose-ui-tooling-preview", "compose-material3", "compose-material-icons-extended"]
-composeDebug = ["compose-ui-tooling", "compose-ui-test-manifest"]
-lifecycle = ["lifecycle-runtime-ktx", "lifecycle-runtime-compose"]
-graphics = ["graphics-path", "graphics-shape"]
+androidApplication = { id = "com.android.application", version.ref = "agp" }
+androidLibrary = { id = "com.android.library", version.ref = "agp" }
+composeHotReload = { id = "org.jetbrains.compose.hot-reload", version.ref = "composeHotReload" }
+composeMultiplatform = { id = "org.jetbrains.compose", version.ref = "composeMultiplatform" }
+composeCompiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
+kotlinMultiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }

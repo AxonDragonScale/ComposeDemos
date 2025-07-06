@@ -27,8 +27,8 @@ import com.axondragonscale.compose.demo.paracarousel.ParallaxCarouselV2
 //import com.axondragonscale.compose.demo.sensor.Accelerometer
 //import com.axondragonscale.compose.demo.shaders.Shaders
 import com.axondragonscale.compose.demo.shake.Shake
-//import com.axondragonscale.compose.demo.shimmer.Shimmer
-//import com.axondragonscale.compose.demo.shimmer.ShimmeringText
+import com.axondragonscale.compose.demo.shimmer.Shimmer
+import com.axondragonscale.compose.demo.shimmer.ShimmeringText
 //import com.axondragonscale.compose.demo.slider.NumberSlider
 //import com.axondragonscale.compose.demo.slider.RampSlider
 //import com.axondragonscale.compose.demo.slider.StretchySlider
@@ -48,10 +48,12 @@ sealed class Route(
 
     companion object {
         val Demos = listOf<Route>(
-            Shake,
-            ParallaxCarousel,
-            ParallaxCarouselV2,
-            Typewriter,
+            Route.Shake,
+            Route.ParallaxCarousel,
+            Route.ParallaxCarouselV2,
+            Route.Typewriter,
+            Route.Shimmer,
+            Route.ShimmeringText,
         )
     }
 
@@ -83,13 +85,13 @@ sealed class Route(
         composable = { Typewriter() }
     )
 
-//    data object Shimmer: Route(
-//        route = "Shimmer",
-//        title = "Shimmer",
-//        description = "Various Shimmer animations.",
-//        composable = { Shimmer() }
-//    )
-//
+    data object Shimmer: Route(
+        route = "Shimmer",
+        title = "Shimmer",
+        description = "Various Shimmer animations.",
+        composable = { Shimmer() }
+    )
+
 //    data object Loaders: Route(
 //        route = "Loaders",
 //        title = "Loaders",
@@ -215,14 +217,14 @@ sealed class Route(
 //        description = "A carousel with cards",
 //        composable = { CardCarousel() }
 //    )
-//
-//    data object ShimmeringText: Route(
-//        route = "ShimmeringText",
-//        title = "Shimmering Text",
-//        description = "A shimmering text effect.",
-//        composable = { ShimmeringText() }
-//    )
-//
+
+    data object ShimmeringText: Route(
+        route = "ShimmeringText",
+        title = "Shimmering Text",
+        description = "A shimmering text effect.",
+        composable = { ShimmeringText() }
+    )
+
 //    data object SegmentedButton: Route(
 //        route = "SegmentedButton",
 //        title = "Segmented Button",

@@ -1,0 +1,80 @@
+package com.axondragonscale.compose.demo.loader.keyframe
+
+import androidx.compose.foundation.border
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.BoxScope
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Surface
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.unit.dp
+import org.jetbrains.compose.ui.tooling.preview.Preview
+
+/**
+ * Created by Ronak Harkhani on 23/04/24
+ */
+
+@Composable
+fun Loaders(modifier: Modifier = Modifier) {
+    Column(
+        modifier = modifier.fillMaxSize(),
+        verticalArrangement = Arrangement.Center,
+        horizontalAlignment = Alignment.CenterHorizontally,
+    ) {
+        LoaderContainer(Modifier.height(48.dp), Alignment.BottomCenter) {
+            BouncingCirclesLoader()
+        }
+        Spacer(modifier = Modifier.height(24.dp))
+        LoaderContainer(Modifier.height(48.dp)) {
+            PulsingCirclesLoader()
+        }
+        Spacer(modifier = Modifier.height(24.dp))
+        LoaderContainer(Modifier.height(48.dp)) {
+            FlashingCirclesLoader()
+        }
+        Spacer(modifier = Modifier.height(24.dp))
+        LoaderContainer(Modifier.height(48.dp)) {
+            NewtonCradleLoader()
+        }
+        Spacer(modifier = Modifier.height(24.dp))
+        LoaderContainer(Modifier.height(100.dp)) {
+            RingedCirclesLoader()
+        }
+    }
+}
+
+@Composable
+private fun LoaderContainer(
+    modifier: Modifier = Modifier,
+    contentAlignment: Alignment = Alignment.Center,
+    content: @Composable BoxScope.() -> Unit,
+) {
+    Box(
+        modifier = modifier
+            .fillMaxWidth()
+            .padding(horizontal = 24.dp)
+            .border(1.dp, MaterialTheme.colorScheme.primary, RoundedCornerShape(8.dp))
+            .padding(horizontal = 24.dp, vertical = 8.dp),
+        contentAlignment = contentAlignment,
+        content = content
+    )
+}
+
+@Preview
+@Composable
+private fun Preview() {
+    MaterialTheme {
+        Surface {
+            Loaders()
+        }
+    }
+}

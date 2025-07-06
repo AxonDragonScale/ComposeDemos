@@ -33,7 +33,7 @@ import com.axondragonscale.compose.demo.shake.Shake
 //import com.axondragonscale.compose.demo.slider.RampSlider
 //import com.axondragonscale.compose.demo.slider.StretchySlider
 //import com.axondragonscale.compose.demo.spinner.Spinner
-//import com.axondragonscale.compose.demo.typewriter.Typewriter
+import com.axondragonscale.compose.demo.typewriter.Typewriter
 
 /**
  * Created by Ronak Harkhani on 21/04/24
@@ -51,6 +51,7 @@ sealed class Route(
             Shake,
             ParallaxCarousel,
             ParallaxCarouselV2,
+            Typewriter,
         )
     }
 
@@ -75,13 +76,13 @@ sealed class Route(
         composable = { ParallaxCarouselV2() }
     )
 
-//    data object Typewriter: Route(
-//        route = "Typewriter",
-//        title = "Typewriter",
-//        description = "New text appears with a typewriter like animation.",
-//        composable = { Typewriter() }
-//    )
-//
+    data object Typewriter: Route(
+        route = "Typewriter",
+        title = "Typewriter",
+        description = "New text appears with a typewriter like animation.",
+        composable = { Typewriter() }
+    )
+
 //    data object Shimmer: Route(
 //        route = "Shimmer",
 //        title = "Shimmer",

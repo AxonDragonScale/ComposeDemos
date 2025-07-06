@@ -19,8 +19,8 @@ import androidx.compose.runtime.Composable
 //import com.axondragonscale.compose.demo.pager.CircularRevealPager
 //import com.axondragonscale.compose.demo.pager.CubePager
 //import com.axondragonscale.compose.demo.pager.StackedPager
-//import com.axondragonscale.compose.demo.paracarousel.ParallaxCarousel
-//import com.axondragonscale.compose.demo.paracarousel.ParallaxCarouselV2
+import com.axondragonscale.compose.demo.paracarousel.ParallaxCarousel
+import com.axondragonscale.compose.demo.paracarousel.ParallaxCarouselV2
 //import com.axondragonscale.compose.demo.progressbar.ProgressBar
 //import com.axondragonscale.compose.demo.radial.RadialList
 //import com.axondragonscale.compose.demo.scribble.ScribbleIndicator
@@ -49,6 +49,8 @@ sealed class Route(
     companion object {
         val Demos = listOf<Route>(
             Shake,
+            ParallaxCarousel,
+            ParallaxCarouselV2,
         )
     }
 
@@ -59,20 +61,20 @@ sealed class Route(
         composable = { },
     )
 
-//    data object ParallaxCarousel: Route(
-//        route = "ParallaxCarousel",
-//        title = "Parallax Carousel",
-//        description = "An image carousel with parallax effect. Uses Canvas to render the images with custom size and offset calculations.",
-//        composable = { ParallaxCarousel() },
-//    )
-//
-//    data object ParallaxCarouselV2: Route(
-//        route = "ParallaxCarouselV2",
-//        title = "Parallax Carousel V2",
-//        description = "A simplified version of Parallax Carousel. Doesn't use Canvas to render the images.",
-//        composable = { ParallaxCarouselV2() }
-//    )
-//
+    data object ParallaxCarousel: Route(
+        route = "ParallaxCarousel",
+        title = "Parallax Carousel",
+        description = "An image carousel with parallax effect. Uses Canvas to render the images with custom size and offset calculations.",
+        composable = { ParallaxCarousel() },
+    )
+
+    data object ParallaxCarouselV2: Route(
+        route = "ParallaxCarouselV2",
+        title = "Parallax Carousel V2",
+        description = "A simplified version of Parallax Carousel. Doesn't use Canvas to render the images.",
+        composable = { ParallaxCarouselV2() }
+    )
+
 //    data object Typewriter: Route(
 //        route = "Typewriter",
 //        title = "Typewriter",

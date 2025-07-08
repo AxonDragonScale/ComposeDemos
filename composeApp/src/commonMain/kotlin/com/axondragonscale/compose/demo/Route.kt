@@ -23,7 +23,7 @@ import com.axondragonscale.compose.demo.paracarousel.ParallaxCarousel
 import com.axondragonscale.compose.demo.paracarousel.ParallaxCarouselV2
 //import com.axondragonscale.compose.demo.progressbar.ProgressBar
 import com.axondragonscale.compose.demo.radial.RadialList
-//import com.axondragonscale.compose.demo.scribble.ScribbleIndicator
+import com.axondragonscale.compose.demo.scribble.ScribbleIndicator
 //import com.axondragonscale.compose.demo.sensor.Accelerometer
 //import com.axondragonscale.compose.demo.shaders.Shaders
 import com.axondragonscale.compose.demo.shake.Shake
@@ -66,6 +66,7 @@ sealed class Route(
             Route.Counter,
             Route.CircularRevealPager,
             Route.CubePager,
+            Route.ScribbleIndicator,
         )
     }
 
@@ -181,13 +182,13 @@ sealed class Route(
         composable = { Shake() }
     )
 
-//    data object ScribbleIndicator: Route(
-//        route = "ScribbleIndicator",
-//        title = "Scribble Tab Indicator",
-//        description = "A custom hand drawn looped Tab Indicator.",
-//        composable = { ScribbleIndicator() }
-//    )
-//
+    data object ScribbleIndicator: Route(
+        route = "ScribbleIndicator",
+        title = "Scribble Tab Indicator",
+        description = "A custom hand drawn looped Tab Indicator.",
+        composable = { ScribbleIndicator() }
+    )
+
 //    data object Shaders: Route(
 //        route = "Shaders",
 //        title = "Shaders",

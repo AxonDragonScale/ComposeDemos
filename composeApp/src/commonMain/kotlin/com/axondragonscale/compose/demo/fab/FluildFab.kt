@@ -290,6 +290,7 @@ fun ExpandedFabOutline(
     }
 }
 
+// TODO: Migrate render effect to KMP
 private fun fluidChainRenderEffect(): RenderEffect? {
     return null
     // RenderEffect not supported below android 12

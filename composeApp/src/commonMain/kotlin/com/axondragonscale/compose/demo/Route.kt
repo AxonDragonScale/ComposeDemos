@@ -1,7 +1,7 @@
 package com.axondragonscale.compose.demo
 
 import androidx.compose.runtime.Composable
-//import com.axondragonscale.compose.demo.border.AnimatedBorder
+import com.axondragonscale.compose.demo.border.AnimatedBorder
 //import com.axondragonscale.compose.demo.bottombar.BottomBar
 //import com.axondragonscale.compose.demo.button.SegmentedButton
 //import com.axondragonscale.compose.demo.carousel.CardCarousel
@@ -22,7 +22,7 @@ import com.axondragonscale.compose.demo.loader.keyframe.Loaders
 import com.axondragonscale.compose.demo.paracarousel.ParallaxCarousel
 import com.axondragonscale.compose.demo.paracarousel.ParallaxCarouselV2
 //import com.axondragonscale.compose.demo.progressbar.ProgressBar
-//import com.axondragonscale.compose.demo.radial.RadialList
+import com.axondragonscale.compose.demo.radial.RadialList
 //import com.axondragonscale.compose.demo.scribble.ScribbleIndicator
 //import com.axondragonscale.compose.demo.sensor.Accelerometer
 //import com.axondragonscale.compose.demo.shaders.Shaders
@@ -58,6 +58,7 @@ sealed class Route(
             Route.HexagonLoader,
             Route.RingLoader,
             Route.CircleLayout,
+            Route.RadialList,
         )
     }
 
@@ -110,20 +111,20 @@ sealed class Route(
         composable = { CircleLayout() }
     )
 
-//    data object RadialList: Route(
-//        route = "RadialList",
-//        title = "Radial List",
-//        description = "A list with a radial curve.",
-//        composable = { RadialList() }
-//    )
-//
-//    data object AnimatedBorder: Route(
-//        route = "AnimatedBorder",
-//        title = "Animated Border",
-//        description = "A Card with Animated Borders and a modifier to apply animated border to any composable.",
-//        composable = { AnimatedBorder() }
-//    )
-//
+    data object RadialList: Route(
+        route = "RadialList",
+        title = "Radial List",
+        description = "A list with a radial curve.",
+        composable = { RadialList() }
+    )
+
+    data object AnimatedBorder: Route(
+        route = "AnimatedBorder",
+        title = "Animated Border",
+        description = "A Card with Animated Borders and a modifier to apply animated border to any composable.",
+        composable = { AnimatedBorder() }
+    )
+
 //    data object CardFlip: Route(
 //        route = "CardFlip",
 //        title = "Card Flip",

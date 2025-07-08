@@ -2,7 +2,7 @@ package com.axondragonscale.compose.demo
 
 import androidx.compose.runtime.Composable
 import com.axondragonscale.compose.demo.border.AnimatedBorder
-//import com.axondragonscale.compose.demo.bottombar.BottomBar
+import com.axondragonscale.compose.demo.bottombar.BottomBar
 //import com.axondragonscale.compose.demo.button.SegmentedButton
 //import com.axondragonscale.compose.demo.carousel.CardCarousel
 import com.axondragonscale.compose.demo.circle.CircleLayout
@@ -21,7 +21,7 @@ import com.axondragonscale.compose.demo.pager.CubePager
 //import com.axondragonscale.compose.demo.pager.StackedPager
 import com.axondragonscale.compose.demo.paracarousel.ParallaxCarousel
 import com.axondragonscale.compose.demo.paracarousel.ParallaxCarouselV2
-//import com.axondragonscale.compose.demo.progressbar.ProgressBar
+import com.axondragonscale.compose.demo.progressbar.ProgressBar
 import com.axondragonscale.compose.demo.radial.RadialList
 import com.axondragonscale.compose.demo.scribble.ScribbleIndicator
 //import com.axondragonscale.compose.demo.sensor.Accelerometer
@@ -29,9 +29,9 @@ import com.axondragonscale.compose.demo.scribble.ScribbleIndicator
 import com.axondragonscale.compose.demo.shake.Shake
 import com.axondragonscale.compose.demo.shimmer.Shimmer
 import com.axondragonscale.compose.demo.shimmer.ShimmeringText
-//import com.axondragonscale.compose.demo.slider.NumberSlider
-//import com.axondragonscale.compose.demo.slider.RampSlider
-//import com.axondragonscale.compose.demo.slider.StretchySlider
+import com.axondragonscale.compose.demo.slider.NumberSlider
+import com.axondragonscale.compose.demo.slider.RampSlider
+import com.axondragonscale.compose.demo.slider.StretchySlider
 //import com.axondragonscale.compose.demo.spinner.Spinner
 import com.axondragonscale.compose.demo.typewriter.Typewriter
 
@@ -67,6 +67,11 @@ sealed class Route(
             Route.CircularRevealPager,
             Route.CubePager,
             Route.ScribbleIndicator,
+            Route.BottomBar,
+            Route.ProgressBar,
+            Route.NumberSlider,
+            Route.RampSlider,
+            Route.StretchySlider,
         )
     }
 
@@ -202,28 +207,28 @@ sealed class Route(
 //        description = "Just a bit of Shapes and Morphing.",
 //        composable = { ShapesAndMorph() }
 //    )
-//
-//    data object BottomBar: Route(
-//        route = "BottomBar",
-//        title = "Bottom Bars",
-//        description = "Some fun bottom bars.",
-//        composable = { BottomBar() }
-//    )
-//
-//    data object ProgressBar: Route(
-//        route = "ProgressBar",
-//        title = "Progress Bars",
-//        description = "Bcoz progress shouldn't be like watching paint dry.",
-//        composable = { ProgressBar() }
-//    )
-//
-//    data object NumberSlider: Route(
-//        route = "NumberSlider",
-//        title = "Number Slider",
-//        description = "Hmm, Wouldn't it be nice if the slider had numbers.",
-//        composable = { NumberSlider() }
-//    )
-//
+
+    data object BottomBar: Route(
+        route = "BottomBar",
+        title = "Bottom Bars",
+        description = "Some fun bottom bars.",
+        composable = { BottomBar() }
+    )
+
+    data object ProgressBar: Route(
+        route = "ProgressBar",
+        title = "Progress Bars",
+        description = "Bcoz progress shouldn't be like watching paint dry.",
+        composable = { ProgressBar() }
+    )
+
+    data object NumberSlider: Route(
+        route = "NumberSlider",
+        title = "Number Slider",
+        description = "Hmm, Wouldn't it be nice if the slider had numbers.",
+        composable = { NumberSlider() }
+    )
+
 //    data object CardCarousel: Route(
 //        route = "CardCarousel",
 //        title = "Card Carousel",
@@ -244,13 +249,13 @@ sealed class Route(
 //        description = "A Segmented Button with movement animation for selected item using Lookahead.",
 //        composable = { SegmentedButton() }
 //    )
-//
-//    data object RampSlider: Route(
-//        route = "RampSlider",
-//        title = "Ramp Slider",
-//        description = "A slider where the portion being dragged is raised as a curve.",
-//        composable = { RampSlider() }
-//    )
+
+    data object RampSlider: Route(
+        route = "RampSlider",
+        title = "Ramp Slider",
+        description = "A slider where the portion being dragged is raised as a curve.",
+        composable = { RampSlider() }
+    )
 
 //    data object MorphLoaders: Route(
 //        route = "MorphLoaders",
@@ -266,12 +271,12 @@ sealed class Route(
         composable = { ExpandingFab() }
     )
 
-//    data object StretchySlider: Route(
-//        route = "StretchySlider",
-//        title = "Stretchy Slider",
-//        description = "A slider that stretches when being dragged.",
-//        composable = { StretchySlider() }
-//    )
+    data object StretchySlider: Route(
+        route = "StretchySlider",
+        title = "Stretchy Slider",
+        description = "A slider that stretches when being dragged.",
+        composable = { StretchySlider() }
+    )
 
     data object HexagonLoader: Route(
         route = "HexagonLoader",

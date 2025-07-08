@@ -8,7 +8,7 @@ import com.axondragonscale.compose.demo.border.AnimatedBorder
 import com.axondragonscale.compose.demo.circle.CircleLayout
 //import com.axondragonscale.compose.demo.counter.Counter
 //import com.axondragonscale.compose.demo.effect.GlowingEffect
-//import com.axondragonscale.compose.demo.flip.CardFlip
+import com.axondragonscale.compose.demo.flip.CardFlip
 //import com.axondragonscale.compose.demo.fab.FluidFab
 //import com.axondragonscale.compose.demo.fab.ExpandingFab
 import com.axondragonscale.compose.demo.loader.HexagonLoader
@@ -59,6 +59,8 @@ sealed class Route(
             Route.RingLoader,
             Route.CircleLayout,
             Route.RadialList,
+            Route.AnimatedBorder,
+            Route.CardFlip,
         )
     }
 
@@ -125,13 +127,13 @@ sealed class Route(
         composable = { AnimatedBorder() }
     )
 
-//    data object CardFlip: Route(
-//        route = "CardFlip",
-//        title = "Card Flip",
-//        description = "An Animation of a Card being flipped.",
-//        composable = { CardFlip() }
-//    )
-//
+    data object CardFlip: Route(
+        route = "CardFlip",
+        title = "Card Flip",
+        description = "An Animation of a Card being flipped.",
+        composable = { CardFlip() }
+    )
+
 //    data object FluidFab: Route(
 //        route = "FluidFab",
 //        title = "Fluid FAB",

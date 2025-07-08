@@ -3,11 +3,11 @@ package com.axondragonscale.compose.demo
 import androidx.compose.runtime.Composable
 import com.axondragonscale.compose.demo.border.AnimatedBorder
 import com.axondragonscale.compose.demo.bottombar.BottomBar
-//import com.axondragonscale.compose.demo.button.SegmentedButton
-//import com.axondragonscale.compose.demo.carousel.CardCarousel
+import com.axondragonscale.compose.demo.button.SegmentedButton
+import com.axondragonscale.compose.demo.carousel.CardCarousel
 import com.axondragonscale.compose.demo.circle.CircleLayout
 import com.axondragonscale.compose.demo.counter.Counter
-//import com.axondragonscale.compose.demo.effect.GlowingEffect
+import com.axondragonscale.compose.demo.effect.GlowingEffect
 import com.axondragonscale.compose.demo.flip.CardFlip
 import com.axondragonscale.compose.demo.fab.FluidFab
 import com.axondragonscale.compose.demo.fab.ExpandingFab
@@ -72,6 +72,9 @@ sealed class Route(
             Route.NumberSlider,
             Route.RampSlider,
             Route.StretchySlider,
+            Route.CardCarousel,
+            Route.SegmentedButton,
+            Route.GlowEffect,
         )
     }
 
@@ -229,12 +232,12 @@ sealed class Route(
         composable = { NumberSlider() }
     )
 
-//    data object CardCarousel: Route(
-//        route = "CardCarousel",
-//        title = "Card Carousel",
-//        description = "A carousel with cards",
-//        composable = { CardCarousel() }
-//    )
+    data object CardCarousel: Route(
+        route = "CardCarousel",
+        title = "Card Carousel",
+        description = "A carousel with cards",
+        composable = { CardCarousel() }
+    )
 
     data object ShimmeringText: Route(
         route = "ShimmeringText",
@@ -243,12 +246,12 @@ sealed class Route(
         composable = { ShimmeringText() }
     )
 
-//    data object SegmentedButton: Route(
-//        route = "SegmentedButton",
-//        title = "Segmented Button",
-//        description = "A Segmented Button with movement animation for selected item using Lookahead.",
-//        composable = { SegmentedButton() }
-//    )
+    data object SegmentedButton: Route(
+        route = "SegmentedButton",
+        title = "Segmented Button",
+        description = "A Segmented Button with movement animation for selected item using Lookahead.",
+        composable = { SegmentedButton() }
+    )
 
     data object RampSlider: Route(
         route = "RampSlider",
@@ -285,13 +288,13 @@ sealed class Route(
         composable = { HexagonLoader() }
     )
 
-//    data object GlowEffect: Route(
-//        route = "GlowEffect",
-//        title = "Glow Effect",
-//        description = "A Glow Effect.",
-//        composable = { GlowingEffect() }
-//    )
-//
+    data object GlowEffect: Route(
+        route = "GlowEffect",
+        title = "Glow Effect",
+        description = "A Glow Effect.",
+        composable = { GlowingEffect() }
+    )
+
 //    data object Accelerometer: Route(
 //        route = "Accelerometer",
 //        title = "Accelerometer",

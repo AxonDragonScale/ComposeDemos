@@ -16,8 +16,8 @@ import com.axondragonscale.compose.demo.loader.RingLoaderScreen
 import com.axondragonscale.compose.demo.loader.keyframe.Loaders
 //import com.axondragonscale.compose.demo.loader.morph.MorphLoaders
 //import com.axondragonscale.compose.demo.morph.ShapesAndMorph
-//import com.axondragonscale.compose.demo.pager.CircularRevealPager
-//import com.axondragonscale.compose.demo.pager.CubePager
+import com.axondragonscale.compose.demo.pager.CircularRevealPager
+import com.axondragonscale.compose.demo.pager.CubePager
 //import com.axondragonscale.compose.demo.pager.StackedPager
 import com.axondragonscale.compose.demo.paracarousel.ParallaxCarousel
 import com.axondragonscale.compose.demo.paracarousel.ParallaxCarouselV2
@@ -64,6 +64,8 @@ sealed class Route(
             Route.FluidFab,
             Route.ExpandingFab,
             Route.Counter,
+            Route.CircularRevealPager,
+            Route.CubePager,
         )
     }
 
@@ -151,20 +153,20 @@ sealed class Route(
         composable = { Counter() }
     )
 
-//    data object CubePager: Route(
-//        route = "CubePager",
-//        title = "Cube Pager",
-//        description = "A Pager with cube like transition effect.",
-//        composable = { CubePager() }
-//    )
-//
-//    data object CircularRevealPager: Route(
-//        route = "CircularRevealPager",
-//        title = "Circular Reveal Pager",
-//        description = "A Pager where the next page is revealed in an expanding circular transition.",
-//        composable = { CircularRevealPager() }
-//    )
-//
+    data object CubePager: Route(
+        route = "CubePager",
+        title = "Cube Pager",
+        description = "A Pager with cube like transition effect.",
+        composable = { CubePager() }
+    )
+
+    data object CircularRevealPager: Route(
+        route = "CircularRevealPager",
+        title = "Circular Reveal Pager",
+        description = "A Pager where the next page is revealed in an expanding circular transition.",
+        composable = { CircularRevealPager() }
+    )
+
 //    data object StackedPager: Route(
 //        route = "StackedPager",
 //        title = "Stacked Pager",

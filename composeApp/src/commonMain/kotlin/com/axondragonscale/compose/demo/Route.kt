@@ -9,8 +9,8 @@ import com.axondragonscale.compose.demo.circle.CircleLayout
 //import com.axondragonscale.compose.demo.counter.Counter
 //import com.axondragonscale.compose.demo.effect.GlowingEffect
 import com.axondragonscale.compose.demo.flip.CardFlip
-//import com.axondragonscale.compose.demo.fab.FluidFab
-//import com.axondragonscale.compose.demo.fab.ExpandingFab
+import com.axondragonscale.compose.demo.fab.FluidFab
+import com.axondragonscale.compose.demo.fab.ExpandingFab
 import com.axondragonscale.compose.demo.loader.HexagonLoader
 import com.axondragonscale.compose.demo.loader.RingLoaderScreen
 import com.axondragonscale.compose.demo.loader.keyframe.Loaders
@@ -61,6 +61,8 @@ sealed class Route(
             Route.RadialList,
             Route.AnimatedBorder,
             Route.CardFlip,
+            Route.FluidFab,
+            Route.ExpandingFab,
         )
     }
 
@@ -134,13 +136,13 @@ sealed class Route(
         composable = { CardFlip() }
     )
 
-//    data object FluidFab: Route(
-//        route = "FluidFab",
-//        title = "Fluid FAB",
-//        description = "An expandable Floating Action Button that expands into 3 buttons with a fluid liquidy animation.",
-//         composable = { FluidFab() }
-//    )
-//
+    data object FluidFab: Route(
+        route = "FluidFab",
+        title = "Fluid FAB",
+        description = "An expandable Floating Action Button that expands into 3 buttons with a fluid liquidy animation.",
+         composable = { FluidFab() }
+    )
+
 //    data object Counter: Route(
 //        route = "Counter",
 //        title = "Animated Counter",
@@ -253,13 +255,13 @@ sealed class Route(
 //        composable = { MorphLoaders() }
 //    )
 
-//    data object ExpandingFab: Route(
-//        route = "ExpandingFab",
-//        title = "Expanding FAB",
-//        description = "A vertically expanding FAB.",
-//        composable = { ExpandingFab() }
-//    )
-//
+    data object ExpandingFab: Route(
+        route = "ExpandingFab",
+        title = "Expanding FAB",
+        description = "A vertically expanding FAB.",
+        composable = { ExpandingFab() }
+    )
+
 //    data object StretchySlider: Route(
 //        route = "StretchySlider",
 //        title = "Stretchy Slider",

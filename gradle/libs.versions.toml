@@ -8,6 +8,7 @@ androidx-appcompat = "1.7.1"
 androidx-constraintlayout = "2.2.1"
 androidx-core = "1.16.0"
 androidx-lifecycle = "2.9.1"
+androidx-graphics = "1.1.0-alpha01"
 composeHotReload = "1.0.0-beta03"
 composeMultiplatform = "1.8.2"
 kotlin = "2.2.0"
@@ -25,6 +26,8 @@ androidx-lifecycle-runtimeCompose = { module = "org.jetbrains.androidx.lifecycle
 kotlinx-coroutinesSwing = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-swing", version.ref = "kotlinx-coroutines" }
 kotlinx-datetime = { module = "org.jetbrains.kotlinx:kotlinx-datetime", version.ref = "kotlinx-datetime" }
 navigation-compose = { module = "org.jetbrains.androidx.navigation:navigation-compose", version.ref = "navigation-compose" }
+graphics-path = { module = "androidx.graphics:graphics-path", version.ref = "androidx-graphics" }
+graphics-shape = { module = "androidx.graphics:graphics-shapes", version.ref = "androidx-graphics" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }

@@ -6,7 +6,7 @@ import com.axondragonscale.compose.demo.border.AnimatedBorder
 //import com.axondragonscale.compose.demo.button.SegmentedButton
 //import com.axondragonscale.compose.demo.carousel.CardCarousel
 import com.axondragonscale.compose.demo.circle.CircleLayout
-//import com.axondragonscale.compose.demo.counter.Counter
+import com.axondragonscale.compose.demo.counter.Counter
 //import com.axondragonscale.compose.demo.effect.GlowingEffect
 import com.axondragonscale.compose.demo.flip.CardFlip
 import com.axondragonscale.compose.demo.fab.FluidFab
@@ -63,6 +63,7 @@ sealed class Route(
             Route.CardFlip,
             Route.FluidFab,
             Route.ExpandingFab,
+            Route.Counter,
         )
     }
 
@@ -143,13 +144,13 @@ sealed class Route(
          composable = { FluidFab() }
     )
 
-//    data object Counter: Route(
-//        route = "Counter",
-//        title = "Animated Counter",
-//        description = "A simple counter which animates the digits of the number when it changes.",
-//        composable = { Counter() }
-//    )
-//
+    data object Counter: Route(
+        route = "Counter",
+        title = "Animated Counter",
+        description = "A simple counter which animates the digits of the number when it changes.",
+        composable = { Counter() }
+    )
+
 //    data object CubePager: Route(
 //        route = "CubePager",
 //        title = "Cube Pager",
